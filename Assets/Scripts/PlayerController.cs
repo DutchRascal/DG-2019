@@ -8,13 +8,15 @@ public class PlayerController : MonoBehaviour
     private Transform gunArm;
     private Camera theCam;
     private Animator animator;
+    private SpriteRenderer spriteRendererHand;
 
     void Start()
     {
-        theRB = FindObjectOfType<Rigidbody2D>();
+        theRB = GetComponent<Rigidbody2D>();
         gunArm = GameObject.Find("Gun Hand").GetComponent<Transform>();
         theCam = Camera.main;
-        animator = FindObjectOfType<Animator>();
+        animator = GetComponent<Animator>();
+        spriteRendererHand = GameObject.Find("Gun Hand").GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -29,11 +31,13 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
             gunArm.localScale = new Vector3(-1f, -1f, 1f);
+            spriteRendererHand.sortingOrder = 0;
         }
         else
         {
             transform.localScale = Vector3.one;
             gunArm.localScale = Vector3.one;
+            spriteRendererHand.sortingOrder = 2;
         }
         //rotate arm
         Vector2 offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
