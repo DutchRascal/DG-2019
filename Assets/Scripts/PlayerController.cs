@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D theRB;
     private Transform gunArm;
     private Camera theCam;
+    private Animator animator;
 
     void Start()
     {
         theRB = FindObjectOfType<Rigidbody2D>();
         gunArm = GameObject.Find("Gun Hand").GetComponent<Transform>();
         theCam = Camera.main;
+        animator = FindObjectOfType<Animator>();
     }
 
     void Update()
@@ -37,7 +39,11 @@ public class PlayerController : MonoBehaviour
         //rotate arm
         Vector2 offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
         float angel = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-
         gunArm.rotation = Quaternion.Euler(0f, 0f, angel);
+        if (moveInput == Vector2.zero)
+            animator.SetBool("isMoving", false);
+        else
+            animator.SetBool("isMoving", true);
+
     }
 }
