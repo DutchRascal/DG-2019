@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
+        moveInput.Normalize();
         theRB.velocity = moveInput * moveSpeed;
         Vector3 mousePosition = Input.mousePosition;
         Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
@@ -44,6 +43,5 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isMoving", false);
         else
             animator.SetBool("isMoving", true);
-
     }
 }
