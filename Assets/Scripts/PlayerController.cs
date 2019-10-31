@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private Camera theCam;
     private Animator animator;
     private SpriteRenderer spriteRendererHand;
+    public GameObject bulletToFire;
+    public Transform firePoint;
 
     void Start()
     {
@@ -43,6 +45,10 @@ public class PlayerController : MonoBehaviour
         Vector2 offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
         float angel = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunArm.rotation = Quaternion.Euler(0f, 0f, angel);
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+        }
         if (moveInput == Vector2.zero)
             animator.SetBool("isMoving", false);
         else
