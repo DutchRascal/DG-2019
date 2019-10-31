@@ -477,6 +477,7 @@ MonoBehaviour:
   bulletToFire: {fileID: 6720869283454148684, guid: 982b4a05c33a24b70bd5177812f3d95f,
     type: 3}
   firePoint: {fileID: 1477811204}
+  timeBetweenShots: 0.2
 --- !u!58 &591845375
 CircleCollider2D:
   m_ObjectHideFlags: 0

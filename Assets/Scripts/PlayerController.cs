@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRendererHand;
     public GameObject bulletToFire;
     public Transform firePoint;
+    public float timeBetweenShots;
+    private float shotCounter;
 
     void Start()
     {
@@ -22,6 +24,13 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
+    {
+        MovePlayer();
+        FireBullet();
+        AnimatePlayer();
+    }
+
+    private void MovePlayer()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
@@ -45,10 +54,28 @@ public class PlayerController : MonoBehaviour
         Vector2 offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
         float angel = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunArm.rotation = Quaternion.Euler(0f, 0f, angel);
+    }
+
+    private void FireBullet()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+            shotCounter = timeBetweenShots;
         }
+        if (Input.GetMouseButton(0))
+        {
+            shotCounter -= Time.deltaTime;
+            if (shotCounter <= 0)
+            {
+                Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+                shotCounter = timeBetweenShots;
+            }
+        }
+    }
+
+    private void AnimatePlayer()
+    {
         if (moveInput == Vector2.zero)
             animator.SetBool("isMoving", false);
         else
