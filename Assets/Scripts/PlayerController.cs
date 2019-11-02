@@ -2,6 +2,7 @@
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     public float moveSpeed;
     private Vector2 moveInput;
     private Rigidbody2D theRB;
@@ -13,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     public float timeBetweenShots;
     private float shotCounter;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
