@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 409835725}
   m_Layer: 0
   m_Name: Enemy - Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rangeToChasePlayer: 7
+  health: 150
 --- !u!50 &409835726
 Rigidbody2D:
   serializedVersion: 4
@@ -496,7 +497,7 @@ GameObject:
   - component: {fileID: 591845377}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
