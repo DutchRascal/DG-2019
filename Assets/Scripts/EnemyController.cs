@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿// using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public static EnemyController instance;
     private Rigidbody2D theRB;
     public float moveSpeed;
     public float rangeToChasePlayer;
@@ -12,11 +12,7 @@ public class EnemyController : MonoBehaviour
     private SpriteRenderer enemyBody;
     private Animator animator;
     public int health = 150;
-
-    private void Awake()
-    {
-        instance = this;
-    }
+    public GameObject[] deathSplatters;
 
     void Start()
     {
@@ -62,6 +58,9 @@ public class EnemyController : MonoBehaviour
         if (health < 0)
         {
             Destroy(gameObject);
+            int selectedSplatter = Random.Range(0, deathSplatters.Length);
+            int rotation = Random.Range(0, 4);
+            Instantiate(deathSplatters[selectedSplatter], transform.position, Quaternion.Euler(0f, 0f, rotation * 90));
         }
     }
 }
