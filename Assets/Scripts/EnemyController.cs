@@ -1,7 +1,4 @@
-﻿// using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -13,6 +10,12 @@ public class EnemyController : MonoBehaviour
     private Animator animator;
     public int health = 150;
     public GameObject[] deathSplatters;
+    public GameObject hitEffect;
+    public bool shouldShoot;
+    public GameObject bullet;
+    public Transform firePoint;
+    public float fireRate;
+    private float fireCounter;
 
     void Start()
     {
@@ -25,6 +28,20 @@ public class EnemyController : MonoBehaviour
     {
         PlayerMoving();
         AnimatePlayer();
+        Shoot();
+    }
+
+    private void Shoot()
+    {
+        if (shouldShoot)
+        {
+            fireCounter -= Time.deltaTime;
+            if (fireCounter <= 0)
+            {
+                fireCounter = fireRate;
+                Instantiate(bullet, transform.position, transform.rotation);
+            }
+        }
     }
 
     private void PlayerMoving()
@@ -55,6 +72,7 @@ public class EnemyController : MonoBehaviour
     public void DamageEnemy(int damage)
     {
         health -= damage;
+        Instantiate(hitEffect, transform.position, transform.rotation);
         if (health < 0)
         {
             Destroy(gameObject);

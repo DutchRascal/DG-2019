@@ -21,7 +21,9 @@ public class PlayerBullet : MonoBehaviour
     {
         Instantiate(impactEffect, transform.position, transform.rotation);
         if (other.tag == "Enemy")
+        {
             other.GetComponent<EnemyController>().DamageEnemy(damageToGive);
+        }
         Destroy(gameObject);
     }
 
