@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
             if (fireCounter <= 0)
             {
                 fireCounter = fireRate;
-                Instantiate(bullet, transform.position, transform.rotation);
+                Instantiate(bullet, firePoint.position, firePoint.rotation);
             }
         }
     }
@@ -52,10 +52,12 @@ public class EnemyController : MonoBehaviour
         {
             moveDirection = playerPosition - enemyPosition;
             enemyBody.flipX = playerPosition.x > enemyPosition.x ? true : false;
+            shouldShoot = true;
         }
         else
         {
             moveDirection = Vector3.zero;
+            shouldShoot = false;
         }
         moveDirection.Normalize();
         theRB.velocity = moveDirection * moveSpeed;
