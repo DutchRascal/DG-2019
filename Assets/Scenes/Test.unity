@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 295590863}
   - component: {fileID: 295590864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529275154}
   - component: {fileID: 529275155}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 591845375}
   - component: {fileID: 591845376}
   - component: {fileID: 591845377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 764796808}
   - component: {fileID: 764796809}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1477811204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1818325948}
   - component: {fileID: 1818325949}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,11 +791,6 @@ PrefabInstance:
     - target: {fileID: 1648406436906694178, guid: 326eeb09cbb924eb0873272c50ab41cd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1648406436906694179, guid: 326eeb09cbb924eb0873272c50ab41cd,
-        type: 3}
-      propertyPath: shouldShoot
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
