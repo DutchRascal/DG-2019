@@ -5,11 +5,17 @@ using Random = UnityEngine.Random;
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D theRB;
-    public float moveSpeed;
-    public float rangeToChasePlayer;
     private Vector3 moveDirection;
     private SpriteRenderer enemyBody;
     private Animator animator;
+    private float fireCounter;
+    private bool isEnemyOnScreen;
+    private Vector3 playerPosition;
+    private Vector3 enemyPosition;
+
+    public float shootRange;
+    public float moveSpeed;
+    public float rangeToChasePlayer;
     public int health = 150;
     public GameObject[] deathSplatters;
     public GameObject hitEffect;
@@ -17,11 +23,6 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
     public float fireRate;
-    private float fireCounter;
-    private bool isEnemyOnScreen;
-    public float shootRange;
-    private Vector3 playerPosition;
-    private Vector3 enemyPosition;
 
     void Start()
     {
