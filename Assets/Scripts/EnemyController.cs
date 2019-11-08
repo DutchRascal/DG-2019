@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
 {
@@ -16,6 +18,10 @@ public class EnemyController : MonoBehaviour
     public Transform firePoint;
     public float fireRate;
     private float fireCounter;
+    private bool isEnemyOnScreen;
+    public float shootRange;
+    private Vector3 playerPosition;
+    private Vector3 enemyPosition;
 
     void Start()
     {
@@ -26,14 +32,30 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        PlayerMoving();
-        AnimatePlayer();
-        Shoot();
+        UpdateVariables();
+        CheckIfEnemyIsOnScreen();
+        if (isEnemyOnScreen)
+        {
+            EnemyMoving();
+            Shoot();
+            AnimatePlayer();
+        }
+    }
+
+    private void UpdateVariables()
+    {
+        playerPosition = PlayerController.instance.transform.position;
+        enemyPosition = transform.position;
+    }
+
+    private void CheckIfEnemyIsOnScreen()
+    {
+        isEnemyOnScreen = enemyBody.isVisible ? true : false;
     }
 
     private void Shoot()
     {
-        if (shouldShoot)
+        if (shouldShoot && Vector3.Distance(enemyPosition, playerPosition) < shootRange)
         {
             fireCounter -= Time.deltaTime;
             if (fireCounter <= 0)
@@ -44,20 +66,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void PlayerMoving()
+    private void EnemyMoving()
     {
-        Vector3 playerPosition = PlayerController.instance.transform.position;
-        Vector3 enemyPosition = transform.position;
         if (Vector3.Distance(enemyPosition, playerPosition) < rangeToChasePlayer)
         {
             moveDirection = playerPosition - enemyPosition;
             enemyBody.flipX = playerPosition.x > enemyPosition.x ? true : false;
-            shouldShoot = true;
         }
         else
         {
             moveDirection = Vector3.zero;
-            shouldShoot = false;
         }
         moveDirection.Normalize();
         theRB.velocity = moveDirection * moveSpeed;
