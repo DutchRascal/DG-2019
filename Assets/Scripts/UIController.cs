@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
 
     public Slider healthSlider;
     public Text healthText;
+    public GameObject deathScreen;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class UIController : MonoBehaviour
     }
     void Start()
     {
+        deathScreen.SetActive(false);
     }
 
     void Update()

@@ -38,7 +38,15 @@ public class EnemyController : MonoBehaviour
         if (isEnemyOnScreen)
         {
             EnemyMoving();
-            Shoot();
+            if (PlayerController.instance.gameObject.activeInHierarchy)
+            {
+                Shoot();
+            }
+            else
+            {
+                moveDirection = Vector3.zero;
+                theRB.velocity = moveDirection;
+            }
             AnimatePlayer();
         }
     }
