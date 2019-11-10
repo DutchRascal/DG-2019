@@ -2,6 +2,8 @@
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     private float shotCounter;
     private Vector2 moveInput;
     private Rigidbody2D theRB;
@@ -9,11 +11,19 @@ public class PlayerController : MonoBehaviour
     private Camera theCam;
     private Animator animator;
     private SpriteRenderer spriteRendererHand;
-    public static PlayerController instance;
-    public float moveSpeed;
+    private float activeMoveSpeed;
+
+    public float
+        moveSpeed,
+        timeBetweenShots,
+        dashCounter,
+        dashCoolCounter,
+        dashSpeed = 8f,
+        dashLength = .5f,
+        dashCooldown = 1f,
+        dashInvisibility = .5f;
     public GameObject bulletToFire;
     public Transform firePoint;
-    public float timeBetweenShots;
     public SpriteRenderer bodySR;
 
     private void Awake()
@@ -28,6 +38,7 @@ public class PlayerController : MonoBehaviour
         theCam = Camera.main;
         animator = GetComponent<Animator>();
         spriteRendererHand = GameObject.Find("Gun Hand").GetComponent<SpriteRenderer>();
+        activeMoveSpeed = moveSpeed;
     }
 
     void Update()
@@ -42,7 +53,28 @@ public class PlayerController : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput.Normalize();
-        theRB.velocity = moveInput * moveSpeed;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (dashCoolCounter <= 0 && dashCounter <= 0)
+            {
+                activeMoveSpeed = dashSpeed;
+                dashCounter = dashLength;
+            }
+        }
+        if (dashCounter > 0)
+        {
+            dashCounter -= Time.deltaTime;
+            if (dashCounter <= 0)
+            {
+                activeMoveSpeed = moveSpeed;
+                dashCoolCounter = dashCooldown;
+            }
+        }
+        if (dashCoolCounter > 0)
+        {
+            dashCoolCounter -= Time.deltaTime;
+        }
+        theRB.velocity = moveInput * activeMoveSpeed;
         Vector3 mousePosition = Input.mousePosition;
         Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
         if (mousePosition.x < screenPoint.x)
