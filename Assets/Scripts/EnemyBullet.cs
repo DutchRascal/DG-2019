@@ -18,7 +18,6 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(other.tag);
         if (other.tag == "Player")
         {
             PlayerHealthController.instance.DamagePlayer();
