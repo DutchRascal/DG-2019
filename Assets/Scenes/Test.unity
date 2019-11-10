@@ -853,6 +853,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1477811204}
   timeBetweenShots: 0.2
+  bodySR: {fileID: 1818325949}
 --- !u!58 &591845375
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1182,7 +1183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1207652088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1754,6 +1755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 5
+  damageInvincibleLength: 1
 --- !u!4 &1974627936
 Transform:
   m_ObjectHideFlags: 0

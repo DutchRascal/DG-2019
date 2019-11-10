@@ -7,6 +7,11 @@ public class PlayerHealthController : MonoBehaviour
     public static PlayerHealthController instance;
     public int currentHealth;
     public int maxHealth;
+    public float damageInvincibleLength = 1f;
+    private float invincibleCount;
+    private float rColor;
+    private float gColor;
+    private float bColor;
 
     private void Awake()
     {
@@ -17,6 +22,37 @@ public class PlayerHealthController : MonoBehaviour
     {
         currentHealth = maxHealth;
         UpdateUIElements();
+        rColor = PlayerController.instance.bodySR.color.r;
+        gColor = PlayerController.instance.bodySR.color.g;
+        bColor = PlayerController.instance.bodySR.color.b;
+    }
+
+    void Update()
+    {
+        if (invincibleCount > 0)
+        {
+            invincibleCount -= Time.deltaTime;
+            if (invincibleCount <= 0)
+            {
+                PlayerController.instance.bodySR.color = new Color(rColor, gColor, bColor, 1f);
+            }
+        }
+    }
+
+    public void DamagePlayer()
+    {
+        if (invincibleCount <= 0)
+        {
+            currentHealth--;
+            invincibleCount = damageInvincibleLength;
+            PlayerController.instance.bodySR.color = new Color(rColor, gColor, bColor, .5f);
+            UpdateUIElements();
+            if (currentHealth <= 0)
+            {
+                PlayerController.instance.gameObject.SetActive(false);
+                UIController.instance.deathScreen.SetActive(true);
+            }
+        }
     }
 
     private void UpdateUIElements()
@@ -24,21 +60,5 @@ public class PlayerHealthController : MonoBehaviour
         UIController.instance.healthSlider.maxValue = maxHealth;
         UIController.instance.healthSlider.value = currentHealth;
         UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
-    }
-
-    void Update()
-    {
-
-    }
-
-    public void DamagePlayer()
-    {
-        currentHealth--;
-        UpdateUIElements();
-        if (currentHealth <= 0)
-        {
-            PlayerController.instance.gameObject.SetActive(false);
-            UIController.instance.deathScreen.SetActive(true);
-        }
     }
 }

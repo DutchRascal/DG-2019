@@ -2,18 +2,19 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController instance;
-    public float moveSpeed;
+    private float shotCounter;
     private Vector2 moveInput;
     private Rigidbody2D theRB;
     private Transform gunArm;
     private Camera theCam;
     private Animator animator;
     private SpriteRenderer spriteRendererHand;
+    public static PlayerController instance;
+    public float moveSpeed;
     public GameObject bulletToFire;
     public Transform firePoint;
     public float timeBetweenShots;
-    private float shotCounter;
+    public SpriteRenderer bodySR;
 
     private void Awake()
     {

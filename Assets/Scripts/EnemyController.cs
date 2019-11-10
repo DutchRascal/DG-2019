@@ -81,10 +81,12 @@ public class EnemyController : MonoBehaviour
         {
             moveDirection = playerPosition - enemyPosition;
             enemyBody.flipX = playerPosition.x > enemyPosition.x ? true : false;
+            shouldShoot = true;
         }
         else
         {
             moveDirection = Vector3.zero;
+            shouldShoot = false;
         }
         moveDirection.Normalize();
         theRB.velocity = moveDirection * moveSpeed;
