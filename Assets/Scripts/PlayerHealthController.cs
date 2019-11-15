@@ -61,4 +61,10 @@ public class PlayerHealthController : MonoBehaviour
         UIController.instance.healthSlider.value = currentHealth;
         UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
     }
+
+    public void MakeInvisible(float length)
+    {
+        invincibleCount = length;
+        PlayerController.instance.bodySR.color = new Color(rColor, gColor, bColor, .5f);
+    }
 }

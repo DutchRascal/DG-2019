@@ -855,7 +855,7 @@ MonoBehaviour:
   dashSpeed: 8
   dashLength: 0.5
   dashCooldown: 1
-  dashInvisibility: 0.5
+  dashInvincibility: 0.5
   bulletToFire: {fileID: 6720869283454148684, guid: 982b4a05c33a24b70bd5177812f3d95f,
     type: 3}
   firePoint: {fileID: 1477811204}
@@ -1984,6 +1984,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178050201198987817, guid: 8c361ed2ca58c4dbfb5f90b8f889275a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c361ed2ca58c4dbfb5f90b8f889275a, type: 3}

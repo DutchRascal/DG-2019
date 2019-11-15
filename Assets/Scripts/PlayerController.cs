@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         dashSpeed = 8f,
         dashLength = .5f,
         dashCooldown = 1f,
-        dashInvisibility = .5f;
+        dashInvincibility = .5f;
     public GameObject bulletToFire;
     public Transform firePoint;
     public SpriteRenderer bodySR;
@@ -55,11 +55,13 @@ public class PlayerController : MonoBehaviour
         moveInput.Normalize();
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // if (dashCoolCounter <= 0 && dashCounter <= 0 && (theRB.velocity.x != 0 || theRB.velocity.y != 0))
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 animator.SetTrigger("dash");
+                PlayerHealthController.instance.MakeInvisible(dashInvincibility);
             }
         }
         if (dashCounter > 0)
