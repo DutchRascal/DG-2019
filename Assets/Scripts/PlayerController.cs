@@ -1,23 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
-    private float shotCounter;
     private Vector2 moveInput;
     private Rigidbody2D theRB;
     private Transform gunArm;
     private Camera theCam;
     private Animator animator;
     private SpriteRenderer spriteRendererHand;
-    private float activeMoveSpeed;
+    private float
+        shotCounter,
+        activeMoveSpeed,
+        dashCoolCounter,
+        dashCounter;
 
     public float
         moveSpeed,
         timeBetweenShots,
-        dashCounter,
-        dashCoolCounter,
         dashSpeed = 8f,
         dashLength = .5f,
         dashCooldown = 1f,
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletToFire;
     public Transform firePoint;
     public SpriteRenderer bodySR;
+    public bool isDashing;
 
     private void Awake()
     {
@@ -46,6 +49,12 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         FireBullet();
         AnimatePlayer();
+        CheckDashing();
+    }
+
+    private void CheckDashing()
+    {
+        isDashing = dashCounter > 0 ? true : false;
     }
 
     private void MovePlayer()
@@ -55,8 +64,8 @@ public class PlayerController : MonoBehaviour
         moveInput.Normalize();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // if (dashCoolCounter <= 0 && dashCounter <= 0 && (theRB.velocity.x != 0 || theRB.velocity.y != 0))
-            if (dashCoolCounter <= 0 && dashCounter <= 0)
+            if (dashCoolCounter <= 0 && dashCounter <= 0 && (theRB.velocity.x != 0 || theRB.velocity.y != 0))
+            // if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
