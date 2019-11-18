@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8857766937624650681}
   - component: {fileID: 8857766937624650682}
   - component: {fileID: 8857766937624650683}
+  - component: {fileID: 8942859379282111009}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -95,7 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78f2daecfc744d4d94dc1be736e0715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brokenPieces: []
+  brokenPieces:
+  - {fileID: 5918372266599269936, guid: cd61510d0dba845e0ab542b340474033, type: 3}
+  - {fileID: 4339256898852285702, guid: 125d5764181ba49e98787b3ed502ae7c, type: 3}
+  - {fileID: 3129745634903689496, guid: a3af2e7e3f02142738deb05123adb4e9, type: 3}
+  - {fileID: 8842883650386274879, guid: 09527a4b3ac3140bfb7aec5ab2e4ec4e, type: 3}
+  - {fileID: 3001500120067596713, guid: 87fde106f053b47f7b81b5561a0dbb04, type: 3}
+  - {fileID: 7398553226883773310, guid: a2256a1a280aa4a3b83d1ffca5d8bcef, type: 3}
 --- !u!61 &8857766937624650683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,3 +129,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8125, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8942859379282111009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8857766937624650684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8baaacbc127d49a9b1c3335e6d33f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
