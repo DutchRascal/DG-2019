@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
             leveMusic,
             gameOverMusic,
             winMusic;
+    public AudioSource[] sfx;
 
     private void Awake()
     {
@@ -26,5 +27,11 @@ public class AudioManager : MonoBehaviour
     {
         leveMusic.Stop();
         gameOverMusic.Play();
+    }
+
+    public void PlaySFX(int sfxToPlay)
+    {
+        sfx[sfxToPlay].Stop();
+        sfx[sfxToPlay].Play();
     }
 }

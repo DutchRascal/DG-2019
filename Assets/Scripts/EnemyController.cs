@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
         CheckIfEnemyIsOnScreen();
         if (isEnemyOnScreen)
         {
-            // EnemyMoving();
+            EnemyMoving();
             if (PlayerController.instance.gameObject.activeInHierarchy)
             {
                 Shoot();

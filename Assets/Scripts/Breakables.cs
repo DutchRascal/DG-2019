@@ -21,6 +21,7 @@ public class Breakables : MonoBehaviour
         if (other.tag == "Player" && PlayerController.instance.isDashing)
         {
             Destroy(gameObject);
+            AudioManager.instance.PlaySFX(0);
             //show broken pieces
             for (int i = 0; i < Random.Range(1, maxPieces); i++)
             {
