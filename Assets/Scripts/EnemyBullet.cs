@@ -2,7 +2,7 @@
 
 public class EnemyBullet : MonoBehaviour
 {
-    public float speed = 71.5f;
+    public float speed;
     private Vector3 direction;
 
     void Start()
@@ -23,6 +23,7 @@ public class EnemyBullet : MonoBehaviour
             PlayerHealthController.instance.DamagePlayer();
         }
         Destroy(gameObject);
+        AudioManager .instance.PlaySFX(4);
     }
 
     private void OnBecameInvisible()

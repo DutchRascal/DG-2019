@@ -44,16 +44,25 @@ public class PlayerHealthController : MonoBehaviour
         if (invincibleCount <= 0)
         {
             currentHealth--;
+            AudioManager.instance.PlaySFX(11);
             invincibleCount = damageInvincibleLength;
             PlayerController.instance.bodySR.color = new Color(rColor, gColor, bColor, .5f);
             UpdateUIElements();
             if (currentHealth <= 0)
             {
+                AudioManager.instance.PlaySFX(9);
                 PlayerController.instance.gameObject.SetActive(false);
-                UIController.instance.deathScreen.SetActive(true);
-                AudioManager.instance.PlayGameOver();
+                StartCoroutine(GameOver());
             }
         }
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        UIController.instance.deathScreen.SetActive(true);
+        AudioManager.instance.PlayGameOver();
+
     }
 
     private void UpdateUIElements()
