@@ -314,27 +314,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemsToDrop.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: shouldDropItem
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemDropPercentage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemsToDrop.Array.data[1]
-      value: 
-      objectReference: {fileID: 1032167560573216983, guid: 8169fdf3fcf8f4bfb886f0130c3b37c8,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f89ac797a8dd4377a19beef40aae259, type: 3}
 --- !u!1 &109598535
@@ -1385,27 +1364,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemsToDrop.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: shouldDropItem
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemDropPercentage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemsToDrop.Array.data[1]
-      value: 
-      objectReference: {fileID: 1032167560573216983, guid: 8169fdf3fcf8f4bfb886f0130c3b37c8,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f89ac797a8dd4377a19beef40aae259, type: 3}
 --- !u!1 &519420028
@@ -2939,27 +2897,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemsToDrop.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: shouldDropItem
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemDropPercentage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemsToDrop.Array.data[1]
-      value: 
-      objectReference: {fileID: 1032167560573216983, guid: 8169fdf3fcf8f4bfb886f0130c3b37c8,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f89ac797a8dd4377a19beef40aae259, type: 3}
 --- !u!1 &1135752605
@@ -5426,11 +5363,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4178050201198987817, guid: 8c361ed2ca58c4dbfb5f90b8f889275a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c361ed2ca58c4dbfb5f90b8f889275a, type: 3}
 --- !u!1001 &8857766936193214799
@@ -5500,26 +5432,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemsToDrop.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: shouldDropItem
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemDropPercentage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857766937624650682, guid: 6f89ac797a8dd4377a19beef40aae259,
-        type: 3}
-      propertyPath: itemsToDrop.Array.data[1]
-      value: 
-      objectReference: {fileID: 1032167560573216983, guid: 8169fdf3fcf8f4bfb886f0130c3b37c8,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f89ac797a8dd4377a19beef40aae259, type: 3}
