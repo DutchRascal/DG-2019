@@ -19,4 +19,9 @@ public class CameraController : MonoBehaviour
         if (target != null)
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), moveSpeed * Time.deltaTime);
     }
+
+    public void ChangeTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 }
