@@ -307,6 +307,7 @@ Transform:
   - {fileID: 1582163573}
   - {fileID: 1210203509}
   - {fileID: 1222760542}
+  - {fileID: 5908930868795979652}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -322,8 +323,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f536e7906f3034f4b805bf8b8650c43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeWhenEnterred: 0
-  doors: []
+  closeWhenEnterred: 1
+  openWhenEnemiesCleared: 1
+  doors:
+  - {fileID: 1210203506}
+  - {fileID: 1222760539}
+  enemies:
+  - {fileID: 0}
 --- !u!50 &4426978795064284292
 Rigidbody2D:
   serializedVersion: 4
@@ -2480,3 +2486,33 @@ CompositeCollider2D:
       - {x: 8.000006, y: 1}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
+--- !u!1 &7157873296612227043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5908930868795979652}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5908930868795979652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157873296612227043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 486706930635188626}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
