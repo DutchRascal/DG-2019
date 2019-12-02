@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa828c37c03d4f9f991a66abba78fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBody: {fileID: 1648406436325162544}
   shootRange: 10
   moveSpeed: 3
   rangeToChasePlayer: 7
