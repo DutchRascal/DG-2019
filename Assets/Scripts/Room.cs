@@ -13,7 +13,6 @@ public class Room : MonoBehaviour
 
     private void Update()
     {
-        print(enemies.Count);
         if (enemies.Count > 0 && roomActive && openWhenEnemiesCleared)
         {
             for (int i = 0; i < enemies.Count; i++)

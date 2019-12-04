@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D theRB;
     private Vector3 moveDirection;
-    private SpriteRenderer enemyBody;
+    public SpriteRenderer enemyBody;
     private Animator animator;
     private float fireCounter;
     private bool isEnemyOnScreen;
@@ -28,7 +28,6 @@ public class EnemyController : MonoBehaviour
     {
         theRB = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        enemyBody = GameObject.Find("Body").GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -79,6 +78,7 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyMoving()
     {
+
         if (Vector3.Distance(enemyPosition, playerPosition) < rangeToChasePlayer)
         {
             moveDirection = playerPosition - enemyPosition;
