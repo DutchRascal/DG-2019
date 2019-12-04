@@ -58,7 +58,6 @@ public class EnemyController : MonoBehaviour
 
     private void CheckIfEnemyIsOnScreen()
     {
-        print(enemyBody.isVisible);
         isEnemyOnScreen = enemyBody.isVisible ? true : false;
     }
 
@@ -78,7 +77,7 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyMoving()
     {
-        print("Enemy Moving");
+
         if (Vector3.Distance(enemyPosition, playerPosition) < rangeToChasePlayer)
         {
             moveDirection = playerPosition - enemyPosition;

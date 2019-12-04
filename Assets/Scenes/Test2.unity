@@ -10164,7 +10164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1022200293, guid: 1c79b70467a28412e9bb0ee64c436f1d, type: 3}
       propertyPath: levelToLoad
-      value: Test2
+      value: Test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c79b70467a28412e9bb0ee64c436f1d, type: 3}
