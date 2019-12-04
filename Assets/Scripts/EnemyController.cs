@@ -74,6 +74,7 @@ public class EnemyController : MonoBehaviour
                 AudioManager.instance.PlaySFX(17);
             }
         }
+
     }
 
     private void EnemyMoving()
