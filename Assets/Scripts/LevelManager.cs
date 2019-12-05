@@ -18,6 +18,9 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator levelEnd()
     {
+        AudioManager.instance.PlayLevelWin();
+        PlayerController.instance.canMove = false;
+        UIController.instance.StartFadeToBlack();
         yield return new WaitForSeconds(waitToLoad);
         SceneManager.LoadScene(nextLevel);
     }

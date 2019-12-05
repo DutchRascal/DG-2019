@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     public SpriteRenderer bodySR;
     public bool isDashing;
+    [HideInInspector]
+    public bool canMove = true;
 
     private void Awake()
     {
@@ -46,10 +48,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        MovePlayer();
-        FireBullet();
-        AnimatePlayer();
-        CheckDashing();
+        if (canMove)
+        {
+            MovePlayer();
+            FireBullet();
+            AnimatePlayer();
+            CheckDashing();
+        }
+        else
+        {
+            theRB.velocity = Vector2.zero;
+            animator.SetBool("isMoving", false);
+        }
     }
 
     private void CheckDashing()

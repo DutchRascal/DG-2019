@@ -6,7 +6,7 @@ public class LevelExit : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
+            PlayerController.instance.canMove = false;
             AudioManager.instance.PlayLevelWin();
             StartCoroutine(LevelManager.instance.levelEnd());
         }
