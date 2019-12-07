@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 1376639958853159227}
   - component: {fileID: 1376639958853159226}
   m_Layer: 5
-  m_Name: Image
+  m_Name: 'Fade Screen '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,7 +536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1376639959042850090
 RectTransform:
   m_ObjectHideFlags: 0
