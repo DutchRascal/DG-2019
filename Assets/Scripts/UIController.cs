@@ -10,7 +10,9 @@ public class UIController : MonoBehaviour
 
     public Slider healthSlider;
     public Text healthText;
-    public GameObject deathScreen;
+    public GameObject
+            pauseMenu,
+            deathScreen;
     public Image fadeScreen;
     public float fadeSpeed;
     public bool
@@ -59,12 +61,19 @@ public class UIController : MonoBehaviour
 
     public void NewGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(newGameScene);
     }
 
     public void ReturnToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuScene);
 
+    }
+
+    public void Resume()
+    {
+        LevelManager.instance.HandlePause();
     }
 }

@@ -12,6 +12,7 @@ public class VictoryScreen : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         anyKeyText.SetActive(false);
     }
 
