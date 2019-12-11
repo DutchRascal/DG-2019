@@ -24,6 +24,8 @@ public class LevelGenerator : MonoBehaviour
         xOffSet = 18f,
         yOffSet = 10f;
     public LayerMask whatIsRoom;
+    private GameObject endRoom;
+    private List<GameObject> layoutRoomObjects = new List<GameObject>();
 
     void Start()
     {
@@ -32,7 +34,14 @@ public class LevelGenerator : MonoBehaviour
         MoveGenerationPoint();
         for (int i = 0; i < distanceToEnd; i++)
         {
-            Instantiate(layoutyRoom, generatorPoint.position, generatorPoint.rotation);
+            GameObject newRoom = Instantiate(layoutyRoom, generatorPoint.position, generatorPoint.rotation);
+            layoutRoomObjects.Add(newRoom);
+            if (i + 1 == distanceToEnd)
+            {
+                newRoom.GetComponent<SpriteRenderer>().color = endColor;
+                layoutRoomObjects.RemoveAt(layoutRoomObjects.Count - 1);
+                endRoom = newRoom;
+            }
             selectedDirection = (Direction)Random.Range(0, 4);
             MoveGenerationPoint();
             while (Physics2D.OverlapCircle(generatorPoint.position, 0.2f, whatIsRoom))
