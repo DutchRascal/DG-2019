@@ -23,6 +23,7 @@ public class LevelGenerator : MonoBehaviour
     public float
         xOffSet = 18f,
         yOffSet = 10f;
+    public LayerMask whatIsRoom;
 
     void Start()
     {
@@ -34,8 +35,13 @@ public class LevelGenerator : MonoBehaviour
             Instantiate(layoutyRoom, generatorPoint.position, generatorPoint.rotation);
             selectedDirection = (Direction)Random.Range(0, 4);
             MoveGenerationPoint();
+            while (Physics2D.OverlapCircle(generatorPoint.position, 0.2f, whatIsRoom))
+            {
+                MoveGenerationPoint();
+            }
         }
     }
+
 
     void Update()
     {
@@ -62,3 +68,4 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 }
+

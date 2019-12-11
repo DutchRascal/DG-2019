@@ -271,6 +271,9 @@ MonoBehaviour:
   selectedDirection: 0
   xOffSet: 18
   yOffSet: 10
+  whatIsRoom:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!4 &989187564
 Transform:
   m_ObjectHideFlags: 0
