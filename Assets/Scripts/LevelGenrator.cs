@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -28,11 +29,18 @@ public class LevelGenerator : MonoBehaviour
         Instantiate(layoutyRoom, generatorPoint.position, generatorPoint.rotation).GetComponent<SpriteRenderer>().color = startColor;
         selectedDirection = (Direction)Random.Range(0, 4);
         MoveGenerationPoint();
+        for (int i = 0; i < distanceToEnd; i++)
+        {
+            Instantiate(layoutyRoom, generatorPoint.position, generatorPoint.rotation);
+            selectedDirection = (Direction)Random.Range(0, 4);
+            MoveGenerationPoint();
+        }
     }
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MoveGenerationPoint()
