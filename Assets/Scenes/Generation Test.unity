@@ -289,7 +289,7 @@ MonoBehaviour:
   whatIsRoom:
     serializedVersion: 2
     m_Bits: 32768
-  roomPrefabs:
+  rooms:
     singleUp: {fileID: 2064089282899932515, guid: 994b1a8bf6c454d9db7091a0f0ce0e2c,
       type: 3}
     singleDown: {fileID: 6073876130571362343, guid: 72f3f99a0d5f84c099eb1d66382a63e8,
