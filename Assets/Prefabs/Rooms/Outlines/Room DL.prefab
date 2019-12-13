@@ -838,7 +838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3222405491359265279}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1221001479539798216}
@@ -1026,7 +1026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5498466849348856756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.5, y: 0, z: 0}
+  m_LocalPosition: {x: -8.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1283171652334955581}
@@ -1297,13 +1297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f536e7906f3034f4b805bf8b8650c43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomActive: 0
   closeWhenEnterred: 1
-  openWhenEnemiesCleared: 1
   doors:
   - {fileID: 3222405491359265279}
   - {fileID: 5498466849348856756}
-  enemies:
-  - {fileID: 0}
 --- !u!50 &5611811459779982798
 Rigidbody2D:
   serializedVersion: 4
