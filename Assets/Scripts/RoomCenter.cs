@@ -8,6 +8,12 @@ public class RoomCenter : MonoBehaviour
     public bool openWhenEnemiesCleared;
     public Room theRoom;
 
+    private void Start()
+    {
+        if (openWhenEnemiesCleared)
+            theRoom.closeWhenEnterred = true;
+    }
+
     private void Update()
     {
         if (enemies.Count > 0 && theRoom.roomActive && openWhenEnemiesCleared)
@@ -23,7 +29,6 @@ public class RoomCenter : MonoBehaviour
             if (enemies.Count == 0)
             {
                 theRoom.OpenDoors();
-
             }
         }
     }

@@ -1298,7 +1298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomActive: 0
-  closeWhenEnterred: 1
+  closeWhenEnterred: 0
   doors:
   - {fileID: 3222405491359265279}
   - {fileID: 5498466849348856756}

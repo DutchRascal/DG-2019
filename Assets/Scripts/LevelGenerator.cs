@@ -25,6 +25,10 @@ public class LevelGenerator : MonoBehaviour
         yOffSet = 10f;
     public LayerMask whatIsRoom;
     public RoomPrefabs rooms;
+    public RoomCenter
+        centerStart,
+        centerEnd;
+    public RoomCenter[] potentialCenters;
 
     private GameObject endRoom;
     private List<GameObject>
@@ -60,6 +64,25 @@ public class LevelGenerator : MonoBehaviour
             CreateRoomOutline(room.transform.position);
         }
         CreateRoomOutline(endRoom.transform.position);
+        foreach (GameObject outline in generatedOutlines)
+        {
+            bool generateCenter = true;
+            if (outline.transform.position == Vector3.zero)
+            {
+                Instantiate(centerStart, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+                generateCenter = false;
+            }
+            if (outline.transform.position == endRoom.transform.position)
+            {
+                Instantiate(centerEnd, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+                generateCenter = false;
+            }
+            if (generateCenter)
+            {
+                int centerSelect = Random.Range(0, potentialCenters.Length);
+                Instantiate(potentialCenters[centerSelect], outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+            }
+        }
     }
 
 
