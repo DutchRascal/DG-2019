@@ -424,7 +424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bffbe68c677b41a696f7340e9eafb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - {fileID: 5516165302776612131}
   openWhenEnemiesCleared: 1
   theRoom: {fileID: 0}
 --- !u!1 &5806223991035783097
@@ -2127,6 +2128,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326eeb09cbb924eb0873272c50ab41cd, type: 3}
+--- !u!1 &5516165302776612131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1648406436906694180, guid: 326eeb09cbb924eb0873272c50ab41cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6515877388258095879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5516165302776612133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1648406436906694178, guid: 326eeb09cbb924eb0873272c50ab41cd,

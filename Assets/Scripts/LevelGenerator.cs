@@ -88,8 +88,10 @@ public class LevelGenerator : MonoBehaviour
 
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+#endif
     }
 
     public void MoveGenerationPoint()
