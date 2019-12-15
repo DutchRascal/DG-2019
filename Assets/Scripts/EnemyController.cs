@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
             enemyPosition,
             moveDirection,
             wanderDirection;
+    private int currentPatrolPoint;
 
     public float
             shootRange,
@@ -35,8 +36,10 @@ public class EnemyController : MonoBehaviour
             shouldShoot,
             shouldRunAway,
             shouldChasePlayer,
-            shouldWander;
+            shouldWander,
+            shouldPatrol;
     public Transform firePoint;
+    public Transform[] patrolPoints;
 
     void Start()
     {
@@ -122,6 +125,16 @@ public class EnemyController : MonoBehaviour
                         wanderCounter = Random.Range(wanderLength * 0.75f, wanderLength * 1.25f);
                         wanderDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
                     }
+                }
+            }
+            if (shouldPatrol)
+            {
+                moveDirection = patrolPoints[currentPatrolPoint].position - transform.position;
+                if (Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < 0.2f)
+                {
+                    currentPatrolPoint++;
+                    if (currentPatrolPoint >= patrolPoints.Length)
+                        currentPatrolPoint = 0;
                 }
             }
         }

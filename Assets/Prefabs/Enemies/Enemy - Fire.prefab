@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4981349317423834372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.62, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4981349317853064468}
@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 4981349317853064470}
   - component: {fileID: 4981349317853064471}
   - component: {fileID: 4981349317853064469}
+  - component: {fileID: 1126789754}
   m_Layer: 10
   m_Name: Enemy - Fire
   m_TagString: Enemy
@@ -231,6 +232,8 @@ MonoBehaviour:
   rangeToChasePlayer: 7
   fireRate: 1
   runawayRange: 7
+  wanderLength: 0
+  pauseLength: 0
   health: 150
   deathSplatters:
   - {fileID: 2450906990900696378, guid: e5df942b428fe47b69af31030f233501, type: 3}
@@ -240,7 +243,25 @@ MonoBehaviour:
   hitEffect: {fileID: 1740457774972679521, guid: 95e535fb8045c4a4ab7ea8321af2c80b,
     type: 3}
   bullet: {fileID: 4094296596433484168, guid: 53e5ff098dc2d4be3a3ee47f623ceb0e, type: 3}
-  shouldShoot: 1
-  shouldRunAway: 1
+  shouldShoot: 0
+  shouldRunAway: 0
   shouldChasePlayer: 0
+  shouldWander: 0
+  shouldPatrol: 1
   firePoint: {fileID: 1434482871845831253}
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &1126789754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981349317853064466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5538055ea2674224ada6aaf3e6a815e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
