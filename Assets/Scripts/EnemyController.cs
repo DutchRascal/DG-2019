@@ -5,24 +5,31 @@ using Random = UnityEngine.Random;
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D theRB;
-    private Vector3 moveDirection;
     public SpriteRenderer enemyBody;
     private Animator animator;
     private float fireCounter;
     private bool isEnemyOnScreen;
-    private Vector3 playerPosition;
-    private Vector3 enemyPosition;
+    private Vector3
+            playerPosition,
+            enemyPosition,
+            moveDirection;
 
-    public float shootRange;
-    public float moveSpeed;
-    public float rangeToChasePlayer;
+    public float
+            shootRange,
+            moveSpeed,
+            rangeToChasePlayer,
+            fireRate,
+            runawayRange;
     public int health = 150;
     public GameObject[] deathSplatters;
-    public GameObject hitEffect;
-    public bool shouldShoot;
-    public GameObject bullet;
+    public GameObject
+            hitEffect,
+            bullet;
+    public bool
+            shouldShoot,
+            shouldRunAway,
+            shouldChasePlayer;
     public Transform firePoint;
-    public float fireRate;
 
     void Start()
     {
@@ -78,17 +85,16 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyMoving()
     {
-
-        if (Vector3.Distance(enemyPosition, playerPosition) < rangeToChasePlayer)
+        moveDirection = Vector3.zero;
+        if (Vector3.Distance(enemyPosition, playerPosition) < rangeToChasePlayer && shouldChasePlayer)
         {
             moveDirection = playerPosition - enemyPosition;
             enemyBody.flipX = playerPosition.x > enemyPosition.x ? true : false;
             shouldShoot = true;
         }
-        else
+        if (shouldRunAway && Vector3.Distance(enemyPosition, playerPosition) < runawayRange)
         {
-            moveDirection = Vector3.zero;
-            shouldShoot = false;
+            moveDirection = enemyPosition - playerPosition;
         }
         moveDirection.Normalize();
         theRB.velocity = moveDirection * moveSpeed;
