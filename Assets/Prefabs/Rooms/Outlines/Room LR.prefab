@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 1573881006484664818}
   - component: {fileID: 4699600224853904012}
   - component: {fileID: 7916768008953065959}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Room LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

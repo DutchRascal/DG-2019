@@ -6,6 +6,7 @@ public class DamagePlayer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
+        print("Hit");
         if (other.tag == "Player")
         {
             PlayerHealthController.instance.DamagePlayer();

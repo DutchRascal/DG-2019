@@ -7,19 +7,25 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D theRB;
     public SpriteRenderer enemyBody;
     private Animator animator;
-    private float fireCounter;
+    private float
+            fireCounter,
+            wanderCounter,
+            pauseCounter;
     private bool isEnemyOnScreen;
     private Vector3
             playerPosition,
             enemyPosition,
-            moveDirection;
+            moveDirection,
+            wanderDirection;
 
     public float
             shootRange,
             moveSpeed,
             rangeToChasePlayer,
             fireRate,
-            runawayRange;
+            runawayRange,
+            wanderLength,
+            pauseLength;
     public int health = 150;
     public GameObject[] deathSplatters;
     public GameObject
@@ -28,13 +34,16 @@ public class EnemyController : MonoBehaviour
     public bool
             shouldShoot,
             shouldRunAway,
-            shouldChasePlayer;
+            shouldChasePlayer,
+            shouldWander;
     public Transform firePoint;
 
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if (shouldWander)
+            pauseCounter = Random.Range(pauseLength * 0.75f, pauseLength * 1.25f);
     }
 
     void Update()
@@ -80,7 +89,6 @@ public class EnemyController : MonoBehaviour
                 AudioManager.instance.PlaySFX(17);
             }
         }
-
     }
 
     private void EnemyMoving()
@@ -90,7 +98,32 @@ public class EnemyController : MonoBehaviour
         {
             moveDirection = playerPosition - enemyPosition;
             enemyBody.flipX = playerPosition.x > enemyPosition.x ? true : false;
-            shouldShoot = true;
+            // shouldShoot = true;
+        }
+        else
+        {
+            if (shouldWander)
+            {
+                if (wanderCounter > 0)
+                {
+                    wanderCounter -= Time.deltaTime;
+                    //move the enemy
+                    moveDirection = wanderDirection;
+                    if (wanderCounter <= 0)
+                    {
+                        pauseCounter = Random.Range(pauseLength * 0.75f, pauseLength * 1.25f);
+                    }
+                }
+                if (pauseCounter > 0)
+                {
+                    pauseCounter -= Time.deltaTime;
+                    if (pauseCounter <= 0)
+                    {
+                        wanderCounter = Random.Range(wanderLength * 0.75f, wanderLength * 1.25f);
+                        wanderDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+                    }
+                }
+            }
         }
         if (shouldRunAway && Vector3.Distance(enemyPosition, playerPosition) < runawayRange)
         {

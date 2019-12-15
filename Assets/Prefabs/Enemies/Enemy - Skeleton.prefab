@@ -120,6 +120,8 @@ MonoBehaviour:
   rangeToChasePlayer: 7
   fireRate: 1
   runawayRange: 7
+  wanderLength: 0
+  pauseLength: 0
   health: 150
   deathSplatters:
   - {fileID: 2450906990900696378, guid: e5df942b428fe47b69af31030f233501, type: 3}
@@ -132,6 +134,7 @@ MonoBehaviour:
   shouldShoot: 1
   shouldRunAway: 0
   shouldChasePlayer: 1
+  shouldWander: 0
   firePoint: {fileID: 6925084340009330837}
 --- !u!1 &3950738628196306884
 GameObject:

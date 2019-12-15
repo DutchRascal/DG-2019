@@ -1362,7 +1362,7 @@ GameObject:
   - component: {fileID: 891443763475165405}
   - component: {fileID: 6037308803682045065}
   - component: {fileID: 5061656419456673776}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Room RDL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

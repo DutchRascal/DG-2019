@@ -124,13 +124,14 @@ GameObject:
   - component: {fileID: 7102823433106094648}
   - component: {fileID: 7102823433106094649}
   - component: {fileID: 7102823433106094651}
+  - component: {fileID: 1839487581}
   m_Layer: 10
   m_Name: Enemy - Blob
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7102823433106094650
 Transform:
   m_ObjectHideFlags: 0
@@ -231,6 +232,8 @@ MonoBehaviour:
   rangeToChasePlayer: 7
   fireRate: 1
   runawayRange: 7
+  wanderLength: 4
+  pauseLength: 1.5
   health: 150
   deathSplatters:
   - {fileID: 2450906990900696378, guid: e5df942b428fe47b69af31030f233501, type: 3}
@@ -240,7 +243,20 @@ MonoBehaviour:
   hitEffect: {fileID: 1740457774972679521, guid: 95e535fb8045c4a4ab7ea8321af2c80b,
     type: 3}
   bullet: {fileID: 4094296596433484168, guid: 53e5ff098dc2d4be3a3ee47f623ceb0e, type: 3}
-  shouldShoot: 1
-  shouldRunAway: 1
-  shouldChasePlayer: 0
+  shouldShoot: 0
+  shouldRunAway: 0
+  shouldChasePlayer: 1
+  shouldWander: 1
   firePoint: {fileID: 3772692787885970811}
+--- !u!114 &1839487581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7102823433106094652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5538055ea2674224ada6aaf3e6a815e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

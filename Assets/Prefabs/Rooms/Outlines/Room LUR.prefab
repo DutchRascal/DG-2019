@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 5129034331570165619}
   - component: {fileID: 4269896492717183618}
   - component: {fileID: 1509085275481946802}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Room LUR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
