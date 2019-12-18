@@ -129,10 +129,12 @@ public class EnemyController : MonoBehaviour
             }
             if (shouldPatrol)
             {
+                print("Patrolling: " + currentPatrolPoint);
                 moveDirection = patrolPoints[currentPatrolPoint].position - transform.position;
                 if (Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < 0.2f)
                 {
                     currentPatrolPoint++;
+                    print(currentPatrolPoint);
                     if (currentPatrolPoint >= patrolPoints.Length)
                         currentPatrolPoint = 0;
                 }
@@ -157,6 +159,7 @@ public class EnemyController : MonoBehaviour
     public void DamageEnemy(int damage)
     {
         health -= damage;
+        print(health);
         AudioManager.instance.PlaySFX(2);
         Instantiate(hitEffect, transform.position, transform.rotation);
         if (health < 0)

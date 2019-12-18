@@ -234,7 +234,7 @@ MonoBehaviour:
   runawayRange: 7
   wanderLength: 4
   pauseLength: 1.5
-  health: 150
+  health: 100
   deathSplatters:
   - {fileID: 2450906990900696378, guid: e5df942b428fe47b69af31030f233501, type: 3}
   - {fileID: 2325128912995193066, guid: b2d8057520f1b4c088efb7c1ccdcbafd, type: 3}
@@ -247,7 +247,9 @@ MonoBehaviour:
   shouldRunAway: 0
   shouldChasePlayer: 1
   shouldWander: 1
+  shouldPatrol: 0
   firePoint: {fileID: 3772692787885970811}
+  patrolPoints: []
 --- !u!114 &1839487581
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -150,7 +150,9 @@ MonoBehaviour:
   rangeToChasePlayer: 7
   fireRate: 1
   runawayRange: 7
-  health: 150
+  wanderLength: 0
+  pauseLength: 0
+  health: 100
   deathSplatters:
   - {fileID: 2450906990900696378, guid: e5df942b428fe47b69af31030f233501, type: 3}
   - {fileID: 2325128912995193066, guid: b2d8057520f1b4c088efb7c1ccdcbafd, type: 3}
@@ -159,10 +161,13 @@ MonoBehaviour:
   hitEffect: {fileID: 1740457774972679521, guid: 95e535fb8045c4a4ab7ea8321af2c80b,
     type: 3}
   bullet: {fileID: 4094296596433484168, guid: 53e5ff098dc2d4be3a3ee47f623ceb0e, type: 3}
-  shouldShoot: 1
+  shouldShoot: 0
   shouldRunAway: 1
   shouldChasePlayer: 0
+  shouldWander: 0
+  shouldPatrol: 0
   firePoint: {fileID: 1059614752769152008}
+  patrolPoints: []
 --- !u!1 &6376395985022612313
 GameObject:
   m_ObjectHideFlags: 0
