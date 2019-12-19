@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public float waitToLoad = 4f;
     public string nextLevel;
     public bool isPaused;
+    public int currentCoins;
 
     private void Awake()
     {
@@ -51,6 +52,20 @@ public class LevelManager : MonoBehaviour
             UIController.instance.pauseMenu.SetActive(false);
             isPaused = false;
             Time.timeScale = 1f;
+        }
+    }
+
+    public void GetCoins(int amount)
+    {
+        currentCoins += amount;
+    }
+
+    public void SpendCoins(int amount)
+    {
+        currentCoins -= amount;
+        if (currentCoins < 0)
+        {
+            currentCoins = 0;
         }
     }
 }
