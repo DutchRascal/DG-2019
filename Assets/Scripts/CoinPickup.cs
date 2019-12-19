@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour
+public class CoinPickup : MonoBehaviour
 {
-    private float waitToBeCollected = 0.5f;
+    public int coinValue = 1;
 
-    public int healAmount = 1;
+    public float waitToBeCollected = 0.5f;
 
     private void Update()
     {
@@ -19,9 +19,9 @@ public class HealthPickup : MonoBehaviour
     {
         if (other.tag == "Player" && waitToBeCollected <= 0)
         {
-            PlayerHealthController.instance.healPlayer(healAmount);
+            LevelManager.instance.GetCoins(coinValue);
             Destroy(gameObject);
-            AudioManager.instance.PlaySFX(7);
+            AudioManager.instance.PlaySFX(5);
         }
     }
 }
