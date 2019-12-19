@@ -83,6 +83,13 @@ public class LevelGenerator : MonoBehaviour
                 Instantiate(potentialCenters[centerSelect], outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
             }
         }
+        /*  foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+          {
+              print(enemy);
+          }
+          int numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+          print(numberOfEnemies); */
+
     }
 
 

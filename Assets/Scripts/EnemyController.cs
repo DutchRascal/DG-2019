@@ -101,7 +101,6 @@ public class EnemyController : MonoBehaviour
         {
             moveDirection = playerPosition - enemyPosition;
             enemyBody.flipX = playerPosition.x > enemyPosition.x ? true : false;
-            // shouldShoot = true;
         }
         else
         {
@@ -159,7 +158,6 @@ public class EnemyController : MonoBehaviour
     public void DamageEnemy(int damage)
     {
         health -= damage;
-        print(health);
         AudioManager.instance.PlaySFX(2);
         Instantiate(hitEffect, transform.position, transform.rotation);
         if (health < 0)
