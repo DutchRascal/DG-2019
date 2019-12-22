@@ -1143,8 +1143,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1376639958287223042}
   healthText: {fileID: 1376639959672238225}
+  coinText: {fileID: 0}
+  pauseMenu: {fileID: 0}
   deathScreen: {fileID: 1376639959042850085}
   fadeScreen: {fileID: 1376639958853159226}
   fadeSpeed: 1
   fadeToBlack: 0
   fadeOutBlack: 0
+  newGameScene: 
+  mainMenuScene: 

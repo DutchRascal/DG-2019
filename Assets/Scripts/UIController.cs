@@ -9,7 +9,9 @@ public class UIController : MonoBehaviour
     public static UIController instance;
 
     public Slider healthSlider;
-    public Text healthText;
+    public Text
+            healthText,
+            coinText;
     public GameObject
             pauseMenu,
             deathScreen;

@@ -128,12 +128,10 @@ public class EnemyController : MonoBehaviour
             }
             if (shouldPatrol)
             {
-                print("Patrolling: " + currentPatrolPoint);
                 moveDirection = patrolPoints[currentPatrolPoint].position - transform.position;
                 if (Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < 0.2f)
                 {
                     currentPatrolPoint++;
-                    print(currentPatrolPoint);
                     if (currentPatrolPoint >= patrolPoints.Length)
                         currentPatrolPoint = 0;
                 }

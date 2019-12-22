@@ -227,7 +227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitToLoad: 4
-  nextLevel: Test2
+  nextLevel: Victory
+  isPaused: 0
+  currentCoins: 0
 --- !u!1 &4565247911073796515
 GameObject:
   m_ObjectHideFlags: 0

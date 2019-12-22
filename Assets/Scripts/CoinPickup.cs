@@ -8,6 +8,10 @@ public class CoinPickup : MonoBehaviour
 
     public float waitToBeCollected = 0.5f;
 
+    private void Start()
+    {
+        UIController.instance.coinText.text = LevelManager.instance.currentCoins.ToString();
+    }
     private void Update()
     {
         if (waitToBeCollected > 0)
@@ -15,11 +19,13 @@ public class CoinPickup : MonoBehaviour
             waitToBeCollected -= Time.deltaTime;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player" && waitToBeCollected <= 0)
         {
             LevelManager.instance.GetCoins(coinValue);
+            UIController.instance.coinText.text = LevelManager.instance.currentCoins.ToString();
             Destroy(gameObject);
             AudioManager.instance.PlaySFX(5);
         }

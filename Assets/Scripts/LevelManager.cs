@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public float waitToLoad = 4f;
     public string nextLevel;
     public bool isPaused;
-    public int currentCoins;
+    public int currentCoins = 0;
 
     private void Awake()
     {
