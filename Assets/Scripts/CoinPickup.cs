@@ -6,7 +6,7 @@ public class CoinPickup : MonoBehaviour
 {
     public int coinValue = 1;
 
-    public float waitToBeCollected = 0.5f;
+    public float waitToBeCollected = 0.2f;
 
     private void Start()
     {

@@ -1,36 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Room : MonoBehaviour
 {
 
     [HideInInspector] public bool roomActive = false;
 
-    public bool
-            closeWhenEnterred/*,
-            openWhenEnemiesCleared*/;
+    public bool closeWhenEnterred;
     public GameObject[] doors;
-    // public List<GameObject> enemies = new List<GameObject>();
-
-    private void Update()
-    {
-        /*if (enemies.Count > 0 && roomActive && openWhenEnemiesCleared)
-        {
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                if (enemies[i] == null)
-                {
-                    enemies.RemoveAt(i);
-                    i--;
-                }
-            }
-            if (enemies.Count == 0)
-            {
-                OpenDoors();
-            }
-        }*/
-    }
 
     public void OpenDoors()
     {

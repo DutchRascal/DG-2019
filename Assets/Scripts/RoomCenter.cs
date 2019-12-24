@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class RoomCenter : MonoBehaviour
 {
+
     public List<GameObject> enemies = new List<GameObject>();
-    public bool openWhenEnemiesCleared;
+    public bool
+            openWhenEnemiesCleared,
+            hasChest;
     public Room theRoom;
 
     private void Start()

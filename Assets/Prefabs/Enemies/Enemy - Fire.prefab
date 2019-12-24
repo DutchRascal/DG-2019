@@ -252,3 +252,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  shouldDropItem: 1
+  itemsToDrop:
+  - {fileID: 737659555735314770, guid: d28f10ceba6024353b9784ccba946e26, type: 3}
+  itemDropPercentage: 25

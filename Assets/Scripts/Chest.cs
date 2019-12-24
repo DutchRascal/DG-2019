@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
+    public static Chest instance;
+
     public GameObject
             coinsToShow,
             openChest;
     public float maxCoins = 5f;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

@@ -168,6 +168,10 @@ MonoBehaviour:
   shouldPatrol: 0
   firePoint: {fileID: 1059614752769152008}
   patrolPoints: []
+  shouldDropItem: 1
+  itemsToDrop:
+  - {fileID: 737659555735314770, guid: d28f10ceba6024353b9784ccba946e26, type: 3}
+  itemDropPercentage: 25
 --- !u!1 &6376395985022612313
 GameObject:
   m_ObjectHideFlags: 0
