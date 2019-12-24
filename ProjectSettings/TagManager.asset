@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - PlayerBullet
+  - Chest
+  - Chests
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - IgnoreBullets
   - Pickups
   - RoomLayout
-  - 
+  - Chests
   - 
   - 
   - 
