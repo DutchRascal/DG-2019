@@ -70,6 +70,7 @@ public class PlayerHealthController : MonoBehaviour
         UIController.instance.healthSlider.maxValue = maxHealth;
         UIController.instance.healthSlider.value = currentHealth;
         UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
+        UIController.instance.coinText.text = LevelManager.instance.currentCoins.ToString(); ;
     }
 
     public void MakeInvisible(float length)
@@ -78,7 +79,7 @@ public class PlayerHealthController : MonoBehaviour
         PlayerController.instance.bodySR.color = new Color(rColor, gColor, bColor, .5f);
     }
 
-    public void healPlayer(int healAmount)
+    public void HealPlayer(int healAmount)
     {
         currentHealth += healAmount;
         if (currentHealth > maxHealth)

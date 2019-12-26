@@ -22,7 +22,8 @@ public class Chest : MonoBehaviour
             Instantiate(openChest, transform.position, transform.rotation);
             for (int i = 1; i < Random.Range(0, maxCoins); i++)
             {
-                Instantiate(coinsToShow, transform.position, transform.rotation);
+                Vector3 coinPosition = new Vector3(transform.position.x + Random.Range(1, 3), transform.position.y + Random.Range(1, 3), transform.position.z);
+                Instantiate(coinsToShow, coinPosition, transform.rotation);
             }
             Destroy(gameObject);
         }

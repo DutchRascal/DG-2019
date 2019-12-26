@@ -19,7 +19,7 @@ public class HealthPickup : MonoBehaviour
     {
         if (other.tag == "Player" && waitToBeCollected <= 0)
         {
-            PlayerHealthController.instance.healPlayer(healAmount);
+            PlayerHealthController.instance.HealPlayer(healAmount);
             Destroy(gameObject);
             AudioManager.instance.PlaySFX(7);
         }

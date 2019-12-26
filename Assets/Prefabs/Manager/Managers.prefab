@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b90a7eb661b4b7aaab87504a9c5c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHealth: 1
   maxHealth: 5
   damageInvincibleLength: 1
 --- !u!114 &4565247910985989553
@@ -229,7 +229,7 @@ MonoBehaviour:
   waitToLoad: 4
   nextLevel: Victory
   isPaused: 0
-  currentCoins: 0
+  currentCoins: 10
 --- !u!1 &4565247911073796515
 GameObject:
   m_ObjectHideFlags: 0

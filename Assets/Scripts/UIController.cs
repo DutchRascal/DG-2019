@@ -30,31 +30,36 @@ public class UIController : MonoBehaviour
     }
     void Start()
     {
-        deathScreen.SetActive(false);
+        if (deathScreen)
+            deathScreen.SetActive(false);
         fadeOutBlack = true;
         fadeToBlack = false;
     }
 
     void Update()
     {
-        if (fadeOutBlack)
+        if (fadeScreen)
         {
-            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
-            if (fadeScreen.color.a == 0f)
+            if (fadeOutBlack)
             {
-                fadeOutBlack = false;
+                fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
+                if (fadeScreen.color.a == 0f)
+                {
+                    fadeOutBlack = false;
+                }
             }
-        }
 
-        if (fadeToBlack)
-        {
-            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
-            if (fadeScreen.color.a == 1f)
+            if (fadeToBlack)
             {
-                fadeToBlack = false;
+                fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+                if (fadeScreen.color.a == 1f)
+                {
+                    fadeToBlack = false;
+                }
             }
         }
     }
+
     public void StartFadeToBlack()
     {
         fadeToBlack = true;
