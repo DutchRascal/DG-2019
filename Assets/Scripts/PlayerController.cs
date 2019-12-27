@@ -29,7 +29,9 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer bodySR;
     public bool isDashing;
     [HideInInspector]
-    public bool canMove = true;
+    public bool
+        canMove = true,
+        allowedToShoot = true;
 
     private void Awake()
     {
@@ -120,20 +122,23 @@ public class PlayerController : MonoBehaviour
 
     private void FireBullet()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (allowedToShoot)
         {
-            Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-            AudioManager.instance.PlaySFX(12);
-            shotCounter = timeBetweenShots;
-        }
-        if (Input.GetMouseButton(0))
-        {
-            shotCounter -= Time.deltaTime;
-            if (shotCounter <= 0)
+            if (Input.GetMouseButtonDown(0))
             {
                 Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-                shotCounter = timeBetweenShots;
                 AudioManager.instance.PlaySFX(12);
+                shotCounter = timeBetweenShots;
+            }
+            if (Input.GetMouseButton(0))
+            {
+                shotCounter -= Time.deltaTime;
+                if (shotCounter <= 0)
+                {
+                    Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+                    shotCounter = timeBetweenShots;
+                    AudioManager.instance.PlaySFX(12);
+                }
             }
         }
     }

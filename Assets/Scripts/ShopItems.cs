@@ -12,18 +12,46 @@ public class ShopItems : MonoBehaviour
             isHealthRestore,
             isHealthUpgrade,
             isWeapon;
-    public int itemCost;
+    public int
+            itemCost,
+            healthUpgradeAmount;
+
+    private void Start()
+    {
+        PlayerController.instance.allowedToShoot = false;
+        inBuyZone = false;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.instance.allowedToShoot = true;
+    }
 
     private void Update()
     {
-        if (inBuyZone && Input.GetKeyDown(KeyCode.E) && (PlayerHealthController.instance.currentHealth != PlayerHealthController.instance.maxHealth))
+        if (inBuyZone)
         {
-            if (LevelManager.instance.currentCoins >= itemCost)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                LevelManager.instance.SpendCoins(itemCost);
-                if (isHealthRestore)
                 {
-                    PlayerHealthController.instance.HealPlayer(PlayerHealthController.instance.maxHealth);
+                    if (LevelManager.instance.currentCoins >= itemCost)
+                    {
+                        LevelManager.instance.SpendCoins(itemCost);
+                        // if (isHealthRestore && PlayerHealthController.instance.currentHealth != PlayerHealthController.instance.maxHealth)
+                        if (isHealthRestore)
+                        {
+                            PlayerHealthController.instance.HealPlayer(PlayerHealthController.instance.maxHealth);
+                        }
+                        if (isHealthUpgrade)
+                        {
+                            PlayerHealthController.instance.IncreaseMaxHealth(healthUpgradeAmount);
+                        }
+                        gameObject.SetActive(false);
+                        inBuyZone = false;
+                        AudioManager.instance.PlaySFX(18);
+                    }
+                    else
+                        AudioManager.instance.PlaySFX(19);
                 }
             }
         }
@@ -32,14 +60,18 @@ public class ShopItems : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
+        {
             buyMessage.SetActive(true);
-        inBuyZone = true;
+            inBuyZone = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Player")
+        {
             buyMessage.SetActive(false);
-        inBuyZone = false;
+            inBuyZone = false;
+        }
     }
 }
