@@ -18,13 +18,12 @@ public class ShopItems : MonoBehaviour
 
     private void Start()
     {
-        PlayerController.instance.allowedToShoot = false;
-        inBuyZone = false;
+        //     PlayerController.instance.allowedToShoot = false;
     }
 
     private void OnDisable()
     {
-        PlayerController.instance.allowedToShoot = true;
+        // PlayerController.instance.allowedToShoot = true;
     }
 
     private void Update()
