@@ -7,6 +7,7 @@ public class Room : MonoBehaviour
 
     public bool closeWhenEnterred;
     public GameObject[] doors;
+    public GameObject mapHider;
 
     public void OpenDoors()
     {
@@ -36,6 +37,7 @@ public class Room : MonoBehaviour
             }
         }
         roomActive = true;
+        mapHider.SetActive(false);
     }
 
     private void OnTriggerExit2D(Collider2D other)
