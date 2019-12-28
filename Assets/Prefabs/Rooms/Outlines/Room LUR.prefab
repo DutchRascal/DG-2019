@@ -1300,7 +1300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8387730872826570605}
   - component: {fileID: 917543592137401248}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Map_Rooms_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -36,24 +36,35 @@ public class ShopItems : MonoBehaviour
                     if (LevelManager.instance.currentCoins >= itemCost)
                     {
                         LevelManager.instance.SpendCoins(itemCost);
-                        // if (isHealthRestore && PlayerHealthController.instance.currentHealth != PlayerHealthController.instance.maxHealth)
-                        if (isHealthRestore)
+                        if (isHealthRestore && PlayerHealthController.instance.currentHealth != PlayerHealthController.instance.maxHealth)
+                        // if (isHealthRestore)
                         {
                             PlayerHealthController.instance.HealPlayer(PlayerHealthController.instance.maxHealth);
+                            HandleSuccesfulBuy();
+                        }
+                        else
+                        {
+                            LevelManager.instance.GetCoins(itemCost);
+                            AudioManager.instance.PlaySFX(19);
                         }
                         if (isHealthUpgrade)
                         {
                             PlayerHealthController.instance.IncreaseMaxHealth(healthUpgradeAmount);
+                            HandleSuccesfulBuy();
                         }
-                        gameObject.SetActive(false);
-                        inBuyZone = false;
-                        AudioManager.instance.PlaySFX(18);
                     }
                     else
                         AudioManager.instance.PlaySFX(19);
                 }
             }
         }
+    }
+
+    private void HandleSuccesfulBuy()
+    {
+        AudioManager.instance.PlaySFX(18);
+        gameObject.SetActive(false);
+        inBuyZone = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
