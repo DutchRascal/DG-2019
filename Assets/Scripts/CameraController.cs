@@ -11,7 +11,6 @@ public class CameraController : MonoBehaviour
     public Camera
             mainCamera,
             bigMapCamera;
-    public GameObject mapCameraRenderer;
 
     private bool bigMapActive;
 
@@ -43,9 +42,10 @@ public class CameraController : MonoBehaviour
             bigMapActive = true;
             mainCamera.enabled = false;
             bigMapCamera.enabled = true;
-            mapCameraRenderer.SetActive(false);
             PlayerController.instance.canMove = false;
             Time.timeScale = 0f;
+            UIController.instance.mapDisplay.SetActive(false);
+            UIController.instance.bigMapText.SetActive(true);
         }
     }
 
@@ -56,9 +56,10 @@ public class CameraController : MonoBehaviour
             bigMapActive = false;
             mainCamera.enabled = true;
             bigMapCamera.enabled = false;
-            mapCameraRenderer.SetActive(true);
             PlayerController.instance.canMove = true;
             Time.timeScale = 1f;
+            UIController.instance.mapDisplay.SetActive(true);
+            UIController.instance.bigMapText.SetActive(false);
         }
     }
 }

@@ -15,7 +15,9 @@ public class UIController : MonoBehaviour
             enemyText;
     public GameObject
             pauseMenu,
-            deathScreen;
+            deathScreen,
+            mapDisplay,
+            bigMapText;
     public Image fadeScreen;
     public float fadeSpeed;
     public bool
