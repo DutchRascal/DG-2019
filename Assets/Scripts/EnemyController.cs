@@ -28,7 +28,9 @@ public class EnemyController : MonoBehaviour
             runawayRange,
             wanderLength,
             pauseLength;
-    public int health = 150;
+    public int
+            health = 150,
+            numberOfEnemies;
     public GameObject[] deathSplatters;
     public GameObject
             hitEffect,
@@ -79,6 +81,9 @@ public class EnemyController : MonoBehaviour
     {
         playerPosition = PlayerController.instance.transform.position;
         enemyPosition = transform.position;
+        numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        UIController.instance.enemyText.text = numberOfEnemies.ToString();
+
     }
 
     private void CheckIfEnemyIsOnScreen()
@@ -167,6 +172,11 @@ public class EnemyController : MonoBehaviour
         if (health < 0)
         {
             AudioManager.instance.PlaySFX(1);
+            if (numberOfEnemies == 1)
+            {
+                UIController.instance.enemyText.text = "0";
+                LevelExit.instance.updateExitCollider();
+            }
             Destroy(gameObject);
             int selectedSplatter = Random.Range(0, deathSplatters.Length);
             int rotation = Random.Range(0, 4);

@@ -11,7 +11,8 @@ public class UIController : MonoBehaviour
     public Slider healthSlider;
     public Text
             healthText,
-            coinText;
+            coinText,
+            enemyText;
     public GameObject
             pauseMenu,
             deathScreen;

@@ -2057,6 +2057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   openWhenEnemiesCleared: 0
+  hasChest: 0
   theRoom: {fileID: 0}
 --- !u!1001 &4936419624131749376
 PrefabInstance:
@@ -2069,6 +2070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389748326930430596, guid: 1c79b70467a28412e9bb0ee64c436f1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2570997638037375057, guid: 1c79b70467a28412e9bb0ee64c436f1d,
         type: 3}
@@ -2125,6 +2131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1022200293, guid: 1c79b70467a28412e9bb0ee64c436f1d, type: 3}
+      propertyPath: exitCollider
+      value: 
+      objectReference: {fileID: 6836264924805350494}
     - target: {fileID: 1900208726260818526, guid: 1c79b70467a28412e9bb0ee64c436f1d,
         type: 3}
       propertyPath: m_IsTrigger
@@ -2145,6 +2155,12 @@ PrefabInstance:
 --- !u!4 &7435350370449485393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2570997638037375057, guid: 1c79b70467a28412e9bb0ee64c436f1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4936419624131749376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &6836264924805350494 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1900208726260818526, guid: 1c79b70467a28412e9bb0ee64c436f1d,
     type: 3}
   m_PrefabInstance: {fileID: 4936419624131749376}
   m_PrefabAsset: {fileID: 0}
