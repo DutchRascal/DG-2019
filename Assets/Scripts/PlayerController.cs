@@ -10,28 +10,28 @@ public class PlayerController : MonoBehaviour
     private Transform gunArm;
     private Camera theCam;
     private Animator animator;
-    private SpriteRenderer spriteRendererHand;
     private float
-        shotCounter,
+        // shotCounter,
         activeMoveSpeed,
         dashCoolCounter,
         dashCounter;
 
     public float
         moveSpeed,
-        timeBetweenShots,
+        // timeBetweenShots,
         dashSpeed = 8f,
         dashLength = .5f,
         dashCooldown = 1f,
         dashInvincibility = .5f;
-    public GameObject bulletToFire;
-    public Transform firePoint;
+    /*   public Transform firePoint;
+       public GameObject bulletToFire; */
     public SpriteRenderer bodySR;
     public bool isDashing;
     [HideInInspector]
     public bool
         canMove = true,
         allowedToShoot = true;
+    public SpriteRenderer spriteRendererHand;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         gunArm = GameObject.Find("Gun Hand").GetComponent<Transform>();
         theCam = Camera.main;
         animator = GetComponent<Animator>();
-        spriteRendererHand = GameObject.Find("Gun Hand").GetComponent<SpriteRenderer>();
+        print(spriteRendererHand);
         activeMoveSpeed = moveSpeed;
     }
 
@@ -122,25 +122,25 @@ public class PlayerController : MonoBehaviour
 
     private void FireBullet()
     {
-        if (allowedToShoot)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-                AudioManager.instance.PlaySFX(12);
-                shotCounter = timeBetweenShots;
-            }
-            if (Input.GetMouseButton(0))
-            {
-                shotCounter -= Time.deltaTime;
-                if (shotCounter <= 0)
+        /*        if (allowedToShoot)
                 {
-                    Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-                    shotCounter = timeBetweenShots;
-                    AudioManager.instance.PlaySFX(12);
-                }
-            }
-        }
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+                        AudioManager.instance.PlaySFX(12);
+                        shotCounter = timeBetweenShots;
+                    }
+                    if (Input.GetMouseButton(0))
+                    {
+                        shotCounter -= Time.deltaTime;
+                        if (shotCounter <= 0)
+                        {
+                            Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+                            shotCounter = timeBetweenShots;
+                            AudioManager.instance.PlaySFX(12);
+                        }
+                    }
+                }*/
     }
 
     private void AnimatePlayer()

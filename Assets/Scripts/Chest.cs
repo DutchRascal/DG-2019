@@ -9,7 +9,7 @@ public class Chest : MonoBehaviour
     public GameObject
             coinsToShow,
             openChest;
-    public float maxCoins = 5f;
+    public float maxCoins = 10f;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class Chest : MonoBehaviour
             Instantiate(openChest, transform.position, transform.rotation);
             for (int i = 1; i < Random.Range(0, maxCoins); i++)
             {
-                Vector3 coinPosition = new Vector3(transform.position.x + Random.Range(1, 3), transform.position.y + Random.Range(1, 3), transform.position.z);
+                Vector3 coinPosition = new Vector3(transform.position.x + Random.Range(-3, 3), transform.position.y + Random.Range(-3, 3), transform.position.z);
                 Instantiate(coinsToShow, coinPosition, transform.rotation);
             }
             Destroy(gameObject);
