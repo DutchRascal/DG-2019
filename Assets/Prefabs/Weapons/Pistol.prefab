@@ -98,7 +98,7 @@ MonoBehaviour:
   bulletToFire: {fileID: 6720869283454148684, guid: 982b4a05c33a24b70bd5177812f3d95f,
     type: 3}
   firePoint: {fileID: 4456004302841598811}
-  timeBetweenShots: 0.2
+  timeBetweenShots: 0.75
 --- !u!1 &5922107957148697691
 GameObject:
   m_ObjectHideFlags: 0

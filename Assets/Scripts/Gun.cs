@@ -23,22 +23,30 @@ public class Gun : MonoBehaviour
 
         if (PlayerController.instance.canMove && !LevelManager.instance.isPaused)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-                AudioManager.instance.PlaySFX(12);
-                shotCounter = timeBetweenShots;
-            }
-            if (Input.GetMouseButton(0))
+            if (shotCounter > 0)
             {
                 shotCounter -= Time.deltaTime;
-                if (shotCounter <= 0)
+            }
+            else
+            {
+                if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
                 {
                     Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-                    shotCounter = timeBetweenShots;
                     AudioManager.instance.PlaySFX(12);
+                    shotCounter = timeBetweenShots;
                 }
+                /*if (Input.GetMouseButton(0))
+                {
+                    shotCounter -= Time.deltaTime;
+                    if (shotCounter <= 0)
+                    {
+                        Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+                        shotCounter = timeBetweenShots;
+                        AudioManager.instance.PlaySFX(12);
+                    }
+                }*/
             }
         }
+
     }
 }
