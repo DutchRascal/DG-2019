@@ -5,7 +5,7 @@ public class PlayerBullet : MonoBehaviour
     public float speed = 7.5f;
     private Rigidbody2D theRB;
     public GameObject impactEffect;
-    private int damageToGive = 25;
+    public int damageToGive = 25;
 
     void Start()
     {

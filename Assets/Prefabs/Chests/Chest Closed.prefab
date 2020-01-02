@@ -96,11 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92c7c4919a1843468f8e5c4059e7bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsToShow: {fileID: 737659555735314770, guid: d28f10ceba6024353b9784ccba946e26,
+  coinsToShow: {fileID: 1469441908527858982, guid: 9721bc4e6feb74097bfe4d82c5de5df0,
     type: 3}
   openChest: {fileID: 7333102941934376640, guid: 312f020f587a24e86871fcd56c3c7600,
     type: 3}
   maxCoins: 5
+  coinText: {fileID: 0}
+  numberOfCoins: 0
 --- !u!61 &1477803749
 BoxCollider2D:
   m_ObjectHideFlags: 0

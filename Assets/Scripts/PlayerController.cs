@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
         activeMoveSpeed,
         dashCoolCounter,
         dashCounter;
+    private int currentGun;
 
     public float
         moveSpeed,
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public bool
         canMove = true,
         allowedToShoot = true;
-    public SpriteRenderer spriteRendererHand;
+    public List<Gun> availableGuns = new List<Gun>();
 
     private void Awake()
     {
@@ -44,8 +46,12 @@ public class PlayerController : MonoBehaviour
         gunArm = GameObject.Find("Gun Hand").GetComponent<Transform>();
         theCam = Camera.main;
         animator = GetComponent<Animator>();
-        print(spriteRendererHand);
         activeMoveSpeed = moveSpeed;
+        foreach (Gun gun in availableGuns)
+        {
+            gun.gameObject.SetActive(false);
+        }
+        availableGuns[0].gameObject.SetActive(true);
     }
 
     void Update()
@@ -53,9 +59,10 @@ public class PlayerController : MonoBehaviour
         if (canMove && !LevelManager.instance.isPaused)
         {
             MovePlayer();
-            FireBullet();
             AnimatePlayer();
             CheckDashing();
+            if (Input.GetKeyDown(KeyCode.Tab))
+                SwitchGun();
         }
         else
         {
@@ -106,41 +113,24 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
             gunArm.localScale = new Vector3(-1f, -1f, 1f);
-            spriteRendererHand.sortingOrder = 0;
+            foreach (Gun gun in availableGuns)
+            {
+                gun.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            }
         }
         else
         {
             transform.localScale = Vector3.one;
             gunArm.localScale = Vector3.one;
-            spriteRendererHand.sortingOrder = 2;
+            foreach (Gun gun in availableGuns)
+            {
+                gun.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            }
         }
         //rotate arm
         Vector2 offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
         float angel = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunArm.rotation = Quaternion.Euler(0f, 0f, angel);
-    }
-
-    private void FireBullet()
-    {
-        /*        if (allowedToShoot)
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-                        AudioManager.instance.PlaySFX(12);
-                        shotCounter = timeBetweenShots;
-                    }
-                    if (Input.GetMouseButton(0))
-                    {
-                        shotCounter -= Time.deltaTime;
-                        if (shotCounter <= 0)
-                        {
-                            Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-                            shotCounter = timeBetweenShots;
-                            AudioManager.instance.PlaySFX(12);
-                        }
-                    }
-                }*/
     }
 
     private void AnimatePlayer()
@@ -150,4 +140,22 @@ public class PlayerController : MonoBehaviour
         else
             animator.SetBool("isMoving", true);
     }
+
+    public void SwitchGun()
+    {
+        if (availableGuns.Count > 0)
+        {
+            availableGuns[currentGun].gameObject.SetActive(false);
+            currentGun++;
+            if (currentGun >= availableGuns.Count)
+                currentGun = 0;
+            availableGuns[currentGun].gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Player has no guns!");
+        }
+
+    }
+
 }
