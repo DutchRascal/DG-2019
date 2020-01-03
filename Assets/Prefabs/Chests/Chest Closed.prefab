@@ -100,9 +100,8 @@ MonoBehaviour:
     type: 3}
   openChest: {fileID: 7333102941934376640, guid: 312f020f587a24e86871fcd56c3c7600,
     type: 3}
-  maxCoins: 5
-  coinText: {fileID: 0}
   numberOfCoins: 0
+  maxCoins: 15
 --- !u!61 &1477803749
 BoxCollider2D:
   m_ObjectHideFlags: 0

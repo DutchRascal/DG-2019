@@ -99,6 +99,8 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 2141149317296550147}
   timeBetweenShots: 0.2
+  weaponName: Machine Gun
+  gunUI: {fileID: -2172343002418747524, guid: f72804754a2106a4884d758772ef2a02, type: 3}
 --- !u!1 &8236950090009765379
 GameObject:
   m_ObjectHideFlags: 0

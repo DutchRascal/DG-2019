@@ -10,8 +10,9 @@ public class Chest : MonoBehaviour
     public GameObject
             coinsToShow,
             openChest;
-    public float maxCoins = 25;
     public int numberOfCoins;
+
+    [SerializeField] private float maxCoins = 25;
 
     private void Awake()
     {

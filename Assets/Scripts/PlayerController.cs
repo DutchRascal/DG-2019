@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
             gun.gameObject.SetActive(false);
         }
         availableGuns[0].gameObject.SetActive(true);
+        UpdateGunUI();
     }
 
     void Update()
@@ -150,6 +151,7 @@ public class PlayerController : MonoBehaviour
             if (currentGun >= availableGuns.Count)
                 currentGun = 0;
             availableGuns[currentGun].gameObject.SetActive(true);
+            UpdateGunUI();
         }
         else
         {
@@ -158,4 +160,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void UpdateGunUI()
+    {
+        UIController.instance.gunText.text = availableGuns[currentGun].weaponName;
+        UIController.instance.currentGun.sprite = availableGuns[currentGun].gunUI;
+    }
 }
