@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveInput;
     private Rigidbody2D theRB;
-    private Transform gunArm;
     private Camera theCam;
     private Animator animator;
     private float
@@ -16,7 +15,6 @@ public class PlayerController : MonoBehaviour
         activeMoveSpeed,
         dashCoolCounter,
         dashCounter;
-    private int currentGun;
 
     public float
         moveSpeed,
@@ -34,6 +32,10 @@ public class PlayerController : MonoBehaviour
         canMove = true,
         allowedToShoot = true;
     public List<Gun> availableGuns = new List<Gun>();
+    // [HideInInspector]
+    public int currentGun;
+    [HideInInspector]
+    public Transform gunArm;
 
     private void Awake()
     {
@@ -63,7 +65,10 @@ public class PlayerController : MonoBehaviour
             AnimatePlayer();
             CheckDashing();
             if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                currentGun++;
                 SwitchGun();
+            }
         }
         else
         {
@@ -146,8 +151,12 @@ public class PlayerController : MonoBehaviour
     {
         if (availableGuns.Count > 0)
         {
-            availableGuns[currentGun].gameObject.SetActive(false);
-            currentGun++;
+            foreach (Gun gun in availableGuns)
+            {
+                gun.gameObject.SetActive(false);
+            }
+            // availableGuns[currentGun].gameObject.SetActive(false);
+            // currentGun++;
             if (currentGun >= availableGuns.Count)
                 currentGun = 0;
             availableGuns[currentGun].gameObject.SetActive(true);
