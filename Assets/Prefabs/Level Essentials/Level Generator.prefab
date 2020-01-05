@@ -46,12 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layoutyRoom: {fileID: 5122368452079002671, guid: 62b5c1079abb84ad29473382e22d8df0,
     type: 3}
-  distanceToEnd: 10
+  distanceToEnd: 15
   minDistanceToShop: 3
   maxDistanceToShop: 7
+  minDistanceToChest: 2
+  maxDistanceToChest: 5
   startColor: {r: 0.068752214, g: 0.9716981, b: 0.96257544, a: 1}
   endColor: {r: 0.990566, g: 0.023362402, b: 0.023362402, a: 1}
   shopColor: {r: 0.98916465, g: 0.990566, b: 0.051397298, a: 1}
+  chestColor: {r: 0.9686275, g: 0.6666667, b: 0.16078432, a: 1}
   generatorPoint: {fileID: 235559617422504183}
   selectedDirection: 0
   xOffSet: 18
@@ -96,6 +99,8 @@ MonoBehaviour:
     type: 3}
   centerShop: {fileID: 7919857343689258754, guid: e9069f7ae8a6d419d9e83db3e2945b41,
     type: 3}
+  centerChest: {fileID: 987271096058741560, guid: f1de6fc4cd2454d6ca5a20d8678494bf,
+    type: 3}
   potentialCenters:
   - {fileID: 2045118341022423614, guid: a230a6ccb563a43c1a6f98d5be98f0c7, type: 3}
   - {fileID: 1942165662058580860, guid: 63a82e47886764bc89bdb3a86d0c3df1, type: 3}
@@ -103,8 +108,8 @@ MonoBehaviour:
   - {fileID: 8802852545611973883, guid: 68a0e688080554c5ab234c032d2b8017, type: 3}
   - {fileID: 4088498658753506539, guid: 12996f2b3e37c471bb9007f33258ec13, type: 3}
   - {fileID: 5902090747373561618, guid: 54e5a388a75014390bfcb033b4fbf19d, type: 3}
-  - {fileID: 987271096058741560, guid: f1de6fc4cd2454d6ca5a20d8678494bf, type: 3}
   includeShop: 1
+  includeChest: 1
 --- !u!1 &235559617422504180
 GameObject:
   m_ObjectHideFlags: 0

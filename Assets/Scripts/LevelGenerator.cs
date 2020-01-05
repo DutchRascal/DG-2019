@@ -10,11 +10,16 @@ public class LevelGenerator : MonoBehaviour
     public int
             distanceToEnd,
             minDistanceToShop,
-            maxDistanceToShop;
+            maxDistanceToShop,
+            minDistanceToChest,
+            maxDistanceToChest,
+            shopSelector,
+            chestSelector;
     public Color
             startColor,
             endColor,
-            shopColor;
+            shopColor,
+            chestColor;
     public Transform generatorPoint;
     public enum Direction
     {
@@ -32,13 +37,17 @@ public class LevelGenerator : MonoBehaviour
     public RoomCenter
         centerStart,
         centerEnd,
-        centerShop;
+        centerShop,
+        centerChest;
     public RoomCenter[] potentialCenters;
-    public bool includeShop;
+    public bool
+            includeShop,
+            includeChest;
 
     private GameObject
             endRoom,
-            shopRoom;
+            shopRoom,
+            chestRoom;
     private List<GameObject>
                 layoutRoomObjects = new List<GameObject>(),
                  generatedOutlines = new List<GameObject>();
@@ -48,18 +57,21 @@ public class LevelGenerator : MonoBehaviour
         CreateRoomLayout();
         if (includeShop)
         {
-            int shopSelector = Random.Range(minDistanceToShop, maxDistanceToShop + 1);
+            shopSelector = Random.Range(minDistanceToShop, maxDistanceToShop + 1);
             shopRoom = layoutRoomObjects[shopSelector];
             layoutRoomObjects.RemoveAt(shopSelector);
             shopRoom.GetComponent<SpriteRenderer>().color = shopColor;
         }
+        if (includeChest)
+        {
+            chestSelector = Random.Range(minDistanceToChest, maxDistanceToChest + 1);
+            while (chestSelector == shopSelector)
+                chestSelector = Random.Range(minDistanceToChest, maxDistanceToChest + 1);
+            chestRoom = layoutRoomObjects[chestSelector];
+            layoutRoomObjects.RemoveAt(chestSelector);
+            chestRoom.GetComponent<SpriteRenderer>().color = chestColor;
+        }
         CreateRoomOutlines();
-        /*       foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
-               {
-                   print(enemy);
-               }
-               int numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-               print(numberOfEnemies);*/
     }
 
     private void CreateRoomOutlines()
@@ -73,6 +85,10 @@ public class LevelGenerator : MonoBehaviour
         if (includeShop)
         {
             CreateRoomOutline(shopRoom.transform.position);
+        }
+        if (includeChest)
+        {
+            CreateRoomOutline(chestRoom.transform.position);
         }
         foreach (GameObject outline in generatedOutlines)
         {
@@ -92,6 +108,14 @@ public class LevelGenerator : MonoBehaviour
                 if (outline.transform.position == shopRoom.transform.position)
                 {
                     Instantiate(centerShop, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+                    generateCenter = false;
+                }
+            }
+            if (includeChest)
+            {
+                if (outline.transform.position == chestRoom.transform.position)
+                {
+                    Instantiate(centerChest, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
                     generateCenter = false;
                 }
             }
