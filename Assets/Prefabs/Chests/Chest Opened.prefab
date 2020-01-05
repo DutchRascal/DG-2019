@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7333102941934376646}
   - component: {fileID: 7333102941934376641}
   - component: {fileID: 141992411}
+  - component: {fileID: 5125026411371117220}
   m_Layer: 16
   m_Name: Chest Opened
   m_TagString: Chests
@@ -107,3 +108,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &5125026411371117220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333102941934376640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926126ca86e074cd7a6f67cb13c6d276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
