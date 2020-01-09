@@ -270,6 +270,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 235559617372172704, guid: d267d1ef9e61e4fa689dff5985ffa555,
+        type: 3}
+      propertyPath: distanceToEnd
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 235559617372172704, guid: d267d1ef9e61e4fa689dff5985ffa555,
+        type: 3}
+      propertyPath: minDistanceToShop
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 235559617372172704, guid: d267d1ef9e61e4fa689dff5985ffa555,
+        type: 3}
+      propertyPath: maxDistanceToShop
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 235559617372172704, guid: d267d1ef9e61e4fa689dff5985ffa555,
+        type: 3}
+      propertyPath: minDistanceToChest
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 235559617372172704, guid: d267d1ef9e61e4fa689dff5985ffa555,
+        type: 3}
+      propertyPath: maxDistanceToChest
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d267d1ef9e61e4fa689dff5985ffa555, type: 3}
 --- !u!1 &519420028
@@ -683,6 +708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: currentCoins
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565247910985989554, guid: 0b3a081440b844fdc85671a955762952,
+        type: 3}
+      propertyPath: nextLevel
+      value: Victory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3a081440b844fdc85671a955762952, type: 3}
