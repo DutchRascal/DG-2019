@@ -8,31 +8,27 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveInput;
     private Rigidbody2D theRB;
-    private Camera theCam;
+    // private Camera theCam;
     private Animator animator;
     private float
-        // shotCounter,
         activeMoveSpeed,
         dashCoolCounter,
         dashCounter;
 
     public float
         moveSpeed,
-        // timeBetweenShots,
         dashSpeed = 8f,
         dashLength = .5f,
         dashCooldown = 1f,
         dashInvincibility = .5f;
-    /*   public Transform firePoint;
-       public GameObject bulletToFire; */
     public SpriteRenderer bodySR;
     public bool isDashing;
-    [HideInInspector]
+    // [HideInInspector]
     public bool
         canMove = true,
         allowedToShoot = true;
     public List<Gun> availableGuns = new List<Gun>();
-    // [HideInInspector]
+    [HideInInspector]
     public int currentGun;
     [HideInInspector]
     public Transform gunArm;
@@ -40,13 +36,14 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
         gunArm = GameObject.Find("Gun Hand").GetComponent<Transform>();
-        theCam = Camera.main;
+        // theCam = Camera.main;
         animator = GetComponent<Animator>();
         activeMoveSpeed = moveSpeed;
         foreach (Gun gun in availableGuns)
@@ -114,7 +111,7 @@ public class PlayerController : MonoBehaviour
         }
         theRB.velocity = moveInput * activeMoveSpeed;
         Vector3 mousePosition = Input.mousePosition;
-        Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
+        Vector3 screenPoint = CameraController.instance.mainCamera.WorldToScreenPoint(transform.localPosition);
         if (mousePosition.x < screenPoint.x)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);

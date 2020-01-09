@@ -39,6 +39,8 @@ public class UIController : MonoBehaviour
             deathScreen.SetActive(false);
         fadeOutBlack = true;
         fadeToBlack = false;
+        currentGun.sprite = PlayerController.instance.availableGuns[PlayerController.instance.currentGun].gunUI;
+        gunText.text = PlayerController.instance.availableGuns[PlayerController.instance.currentGun].weaponName;
     }
 
     void Update()

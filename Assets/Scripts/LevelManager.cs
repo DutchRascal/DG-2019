@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public string nextLevel;
     public bool isPaused;
     public int currentCoins;
+    public Transform startPoint;
 
     private void Awake()
     {
@@ -20,6 +21,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerController.instance.transform.position = startPoint.position;
+        PlayerController.instance.canMove = true;
         currentCoins = CharacterTracker.instance.currentCoins;
         UIController.instance.UpdateUIElements();
         Time.timeScale = 1f;
