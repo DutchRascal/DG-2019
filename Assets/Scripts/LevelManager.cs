@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public float waitToLoad = 4f;
     public string nextLevel;
     public bool isPaused;
-    public int currentCoins = 0;
+    public int currentCoins;
 
     private void Awake()
     {
@@ -20,6 +20,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        currentCoins = CharacterTracker.instance.currentCoins;
+        UIController.instance.UpdateUIElements();
         Time.timeScale = 1f;
     }
     private void Update()
@@ -36,6 +38,9 @@ public class LevelManager : MonoBehaviour
         PlayerController.instance.canMove = false;
         UIController.instance.StartFadeToBlack();
         yield return new WaitForSeconds(waitToLoad);
+        CharacterTracker.instance.maxHealth = PlayerHealthController.instance.maxHealth;
+        CharacterTracker.instance.currentHealth = PlayerHealthController.instance.currentHealth;
+        CharacterTracker.instance.currentCoins = currentCoins;
         SceneManager.LoadScene(nextLevel);
     }
 

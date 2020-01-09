@@ -20,7 +20,8 @@ public class PlayerHealthController : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+        maxHealth = CharacterTracker.instance.maxHealth;
+        currentHealth = CharacterTracker.instance.currentHealth;
         UIController.instance.UpdateUIElements();
         rColor = PlayerController.instance.bodySR.color.r;
         gColor = PlayerController.instance.bodySR.color.g;
