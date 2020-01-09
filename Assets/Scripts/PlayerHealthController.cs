@@ -21,7 +21,7 @@ public class PlayerHealthController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        UpdateUIElements();
+        UIController.instance.UpdateUIElements();
         rColor = PlayerController.instance.bodySR.color.r;
         gColor = PlayerController.instance.bodySR.color.g;
         bColor = PlayerController.instance.bodySR.color.b;
@@ -47,7 +47,7 @@ public class PlayerHealthController : MonoBehaviour
             AudioManager.instance.PlaySFX(11);
             invincibleCount = damageInvincibleLength;
             PlayerController.instance.bodySR.color = new Color(rColor, gColor, bColor, .5f);
-            UpdateUIElements();
+            UIController.instance.UpdateUIElements();
             if (currentHealth <= 0)
             {
                 AudioManager.instance.PlaySFX(9);
@@ -65,13 +65,13 @@ public class PlayerHealthController : MonoBehaviour
 
     }
 
-    private void UpdateUIElements()
-    {
-        UIController.instance.healthSlider.maxValue = maxHealth;
-        UIController.instance.healthSlider.value = currentHealth;
-        UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
-        UIController.instance.coinText.text = LevelManager.instance.currentCoins.ToString(); ;
-    }
+    // public void UpdateUIElements()
+    // {
+    //     UIController.instance.healthSlider.maxValue = maxHealth;
+    //     UIController.instance.healthSlider.value = currentHealth;
+    //     UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
+    //     UIController.instance.coinText.text = LevelManager.instance.currentCoins.ToString(); ;
+    // }
 
     public void MakeInvisible(float length)
     {
@@ -86,13 +86,13 @@ public class PlayerHealthController : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        UpdateUIElements();
+        UIController.instance.UpdateUIElements();
     }
 
     public void IncreaseMaxHealth(int amount)
     {
         maxHealth += amount;
         currentHealth += amount;
-        UpdateUIElements();
+        UIController.instance.UpdateUIElements();
     }
 }

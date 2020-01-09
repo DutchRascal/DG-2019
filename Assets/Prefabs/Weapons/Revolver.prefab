@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5635945702673235496
 Transform:
   m_ObjectHideFlags: 0
@@ -101,6 +101,9 @@ MonoBehaviour:
   timeBetweenShots: 1
   weaponName: Revolver
   gunUI: {fileID: -3940896912681915257, guid: f72804754a2106a4884d758772ef2a02, type: 3}
+  gunShopSprite: {fileID: -4583253144846247162, guid: 48d85d1ef51430e42b6aef57f02c863d,
+    type: 3}
+  itemCost: 45
 --- !u!1 &8530379582850710332
 GameObject:
   m_ObjectHideFlags: 0

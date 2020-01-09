@@ -88,4 +88,12 @@ public class UIController : MonoBehaviour
     {
         LevelManager.instance.HandlePause();
     }
+
+    public void UpdateUIElements()
+    {
+        UIController.instance.healthSlider.maxValue = PlayerHealthController.instance.maxHealth;
+        UIController.instance.healthSlider.value = PlayerHealthController.instance.currentHealth;
+        UIController.instance.healthText.text = PlayerHealthController.instance.currentHealth + " / " + PlayerHealthController.instance.maxHealth;
+        UIController.instance.coinText.text = LevelManager.instance.currentCoins.ToString(); ;
+    }
 }

@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopItems : MonoBehaviour
 {
 
     private bool inBuyZone;
+    private Gun theGun;
 
     public GameObject buyMessage;
     public bool
@@ -15,15 +15,24 @@ public class ShopItems : MonoBehaviour
     public int
             itemCost,
             healthUpgradeAmount;
+    public Gun[] potentialGuns;
+    public SpriteRenderer gunSprite;
+    public Text infoText;
 
     private void Start()
     {
-        //     PlayerController.instance.allowedToShoot = false;
+        if (isWeapon)
+        {
+            int selectedGun = Random.Range(0, potentialGuns.Length);
+            theGun = potentialGuns[selectedGun];
+            gunSprite.sprite = theGun.gunShopSprite;
+            infoText.text = theGun.weaponName + "\n- " + theGun.itemCost + " Gold -";
+            itemCost = theGun.itemCost;
+        }
     }
 
     private void OnDisable()
     {
-        // PlayerController.instance.allowedToShoot = true;
     }
 
     private void Update()
@@ -35,22 +44,41 @@ public class ShopItems : MonoBehaviour
                 {
                     if (LevelManager.instance.currentCoins >= itemCost)
                     {
+                        print("CC before" + LevelManager.instance.currentCoins);
                         LevelManager.instance.SpendCoins(itemCost);
-                        if (isHealthRestore && PlayerHealthController.instance.currentHealth != PlayerHealthController.instance.maxHealth)
-                        // if (isHealthRestore)
+                        print("CC after" + LevelManager.instance.currentCoins);
+                        if (isHealthRestore &&
+                            PlayerHealthController.instance.currentHealth != PlayerHealthController.instance.maxHealth &&
+                            LevelManager.instance.currentCoins > 0)
                         {
                             PlayerHealthController.instance.HealPlayer(PlayerHealthController.instance.maxHealth);
                             HandleSuccesfulBuy();
+                        }
+                        else if (isHealthUpgrade && LevelManager.instance.currentCoins > 0)
+                        {
+                            PlayerHealthController.instance.IncreaseMaxHealth(healthUpgradeAmount);
+                            HandleSuccesfulBuy();
+                        }
+                        else if (isWeapon && LevelManager.instance.currentCoins > 0)
+                        {
+                            Gun gunClone = Instantiate(theGun);
+                            gunClone.transform.parent = PlayerController.instance.gunArm;
+                            gunClone.transform.position = PlayerController.instance.gunArm.position;
+                            gunClone.transform.localRotation = Quaternion.Euler(Vector3Int.zero);
+                            gunClone.transform.localScale = Vector3Int.one;
+                            PlayerController.instance.availableGuns.Add(gunClone);
+                            PlayerController.instance.currentGun = PlayerController.instance.availableGuns.Count - 1;
+                            PlayerController.instance.SwitchGun();
+                            HandleSuccesfulBuy();
+                            UIController.instance.UpdateUIElements();
+                            {
+
+                            }
                         }
                         else
                         {
                             LevelManager.instance.GetCoins(itemCost);
                             AudioManager.instance.PlaySFX(19);
-                        }
-                        if (isHealthUpgrade)
-                        {
-                            PlayerHealthController.instance.IncreaseMaxHealth(healthUpgradeAmount);
-                            HandleSuccesfulBuy();
                         }
                     }
                     else
@@ -62,6 +90,8 @@ public class ShopItems : MonoBehaviour
 
     private void HandleSuccesfulBuy()
     {
+        print(itemCost);
+
         AudioManager.instance.PlaySFX(18);
         gameObject.SetActive(false);
         inBuyZone = false;

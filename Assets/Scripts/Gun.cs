@@ -10,7 +10,10 @@ public class Gun : MonoBehaviour
     public Transform firePoint;
     public float timeBetweenShots;
     public string weaponName;
-    public Sprite gunUI;
+    public Sprite
+        gunUI,
+        gunShopSprite;
+    public int itemCost;
 
     void Update()
     {
