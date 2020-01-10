@@ -66,14 +66,6 @@ public class PlayerHealthController : MonoBehaviour
 
     }
 
-    // public void UpdateUIElements()
-    // {
-    //     UIController.instance.healthSlider.maxValue = maxHealth;
-    //     UIController.instance.healthSlider.value = currentHealth;
-    //     UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
-    //     UIController.instance.coinText.text = LevelManager.instance.currentCoins.ToString(); ;
-    // }
-
     public void MakeInvisible(float length)
     {
         invincibleCount = length;

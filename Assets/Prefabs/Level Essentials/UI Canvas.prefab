@@ -2622,7 +2622,7 @@ MonoBehaviour:
   fadeSpeed: 1
   fadeToBlack: 0
   fadeOutBlack: 0
-  newGameScene: Test
+  newGameScene: Level 1
   mainMenuScene: Title Menu
   currentGun: {fileID: 7640276351305926777}
   gunText: {fileID: 1609585253}
