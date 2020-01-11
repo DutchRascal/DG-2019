@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class LevelExit : MonoBehaviour
 
     private void Start()
     {
-        exitCollider.isTrigger = false;
+        if (SceneManager.GetActiveScene().name != "Character Select")
+            exitCollider.isTrigger = false;
     }
 
     public void updateExitCollider()
