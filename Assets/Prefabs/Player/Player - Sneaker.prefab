@@ -307,7 +307,7 @@ MonoBehaviour:
   availableGuns:
   - {fileID: 2865595657439386148}
   currentGun: 0
-  gunArm: {fileID: 0}
+  gunArm: {fileID: 2946769271091559504}
 --- !u!58 &2946769271431639741
 CircleCollider2D:
   m_ObjectHideFlags: 0

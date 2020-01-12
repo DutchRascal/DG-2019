@@ -131,13 +131,12 @@ MonoBehaviour:
     type: 3}
   openChest: {fileID: 7333102941934376640, guid: 312f020f587a24e86871fcd56c3c7600,
     type: 3}
-  numberOfCoins: 0
   potentialGuns:
   - {fileID: 5546288955034188585, guid: ede6b5532fc3b437fbdc68e6230c1f1a, type: 3}
   - {fileID: 5126070302666720699, guid: 265695d90ed384cd0aa72fae5c805487, type: 3}
   - {fileID: 7618488947890764350, guid: 91b750ec8c1ae423a82dd106220d05b3, type: 3}
+  - {fileID: 7170368714858124771, guid: 01129d8fdea54469283e17e96dac9460, type: 3}
   spawnPoint: {fileID: 2014171448}
-  maxCoins: 15
   scaleSpeed: 10
 --- !u!61 &1477803749
 BoxCollider2D:

@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveInput;
     private Rigidbody2D theRB;
-    // private Camera theCam;
     private Animator animator;
     private float
         activeMoveSpeed,
@@ -30,27 +29,32 @@ public class PlayerController : MonoBehaviour
     public List<Gun> availableGuns = new List<Gun>();
     [HideInInspector]
     public int currentGun;
-    [HideInInspector]
     public Transform gunArm;
+
+
+    // public PlayerController[] gameObjArray;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
+
+        // if (instance == null)
+        // {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        // return;
+        // }
+        // else if (instance != this)
+        // {
+        //     print(instance);
+        // Destroy(this.gameObject);
+        //     print("destroy");
+        // }
     }
 
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
-        gunArm = GameObject.Find("Gun Hand").GetComponent<Transform>();
-        // theCam = Camera.main;
+        // gunArm = GameObject.Find("Gun Hand").GetComponent<Transform>();
         animator = GetComponent<Animator>();
         activeMoveSpeed = moveSpeed;
         foreach (Gun gun in availableGuns)
