@@ -72,10 +72,23 @@ public class PlayerController : MonoBehaviour
             MovePlayer();
             AnimatePlayer();
             CheckDashing();
+
             if (Input.GetKeyDown(KeyCode.Tab))
             {
-                currentGun++;
-                SwitchGun();
+                if (availableGuns.Count > 0)
+                {
+                    currentGun++;
+                    if (currentGun >= availableGuns.Count)
+                    {
+                        currentGun = 0;
+                    }
+
+                    SwitchGun();
+                }
+                else
+                {
+                    Debug.LogError("Player has no guns!");
+                }
             }
         }
         else
@@ -157,23 +170,13 @@ public class PlayerController : MonoBehaviour
 
     public void SwitchGun()
     {
-        if (availableGuns.Count > 0)
+        foreach (Gun gun in availableGuns)
         {
-            foreach (Gun gun in availableGuns)
-            {
-                gun.gameObject.SetActive(false);
-            }
-            // availableGuns[currentGun].gameObject.SetActive(false);
-            // currentGun++;
-            if (currentGun >= availableGuns.Count)
-                currentGun = 0;
-            availableGuns[currentGun].gameObject.SetActive(true);
-            UpdateGunUI();
+            gun.gameObject.SetActive(false);
+            print(gun.gameObject.name);
         }
-        else
-        {
-            Debug.LogError("Player has no guns!");
-        }
+        availableGuns[currentGun].gameObject.SetActive(true);
+        UpdateGunUI();
 
     }
 

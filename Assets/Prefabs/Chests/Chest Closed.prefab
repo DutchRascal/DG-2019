@@ -135,7 +135,8 @@ MonoBehaviour:
   - {fileID: 5546288955034188585, guid: ede6b5532fc3b437fbdc68e6230c1f1a, type: 3}
   - {fileID: 5126070302666720699, guid: 265695d90ed384cd0aa72fae5c805487, type: 3}
   - {fileID: 7618488947890764350, guid: 91b750ec8c1ae423a82dd106220d05b3, type: 3}
-  - {fileID: 7170368714858124771, guid: 01129d8fdea54469283e17e96dac9460, type: 3}
+  - {fileID: 7618488947890764350, guid: c27dda415173a48178d619b2d9bb5467, type: 3}
+  - {fileID: 7618488947890764350, guid: 95cd569d803ba4f5590c68b32731ced5, type: 3}
   spawnPoint: {fileID: 2014171448}
   scaleSpeed: 10
 --- !u!61 &1477803749
