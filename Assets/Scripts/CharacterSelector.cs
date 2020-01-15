@@ -8,6 +8,30 @@ public class CharacterSelector : MonoBehaviour
 
     public GameObject message;
     public PlayerController playerToSpawn;
+    public bool doesLock;
+
+    private void Start()
+    {
+
+        if (doesLock)
+        {
+            if (PlayerPrefs.HasKey(playerToSpawn.name))
+            {
+                if (PlayerPrefs.GetInt(playerToSpawn.name) == 1)
+                {
+                    gameObject.SetActive(true);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
 
     private void Update()
     {
