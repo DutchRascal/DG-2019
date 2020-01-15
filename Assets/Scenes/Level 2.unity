@@ -295,6 +295,12 @@ PrefabInstance:
       propertyPath: maxDistanceToChest
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 235559617372172704, guid: d267d1ef9e61e4fa689dff5985ffa555,
+        type: 3}
+      propertyPath: centerEnd
+      value: 
+      objectReference: {fileID: 2622245016090069511, guid: 656297644178d4d32ae399a6566d2b56,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d267d1ef9e61e4fa689dff5985ffa555, type: 3}
 --- !u!1 &519420028
