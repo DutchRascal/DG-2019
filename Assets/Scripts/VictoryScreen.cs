@@ -14,6 +14,7 @@ public class VictoryScreen : MonoBehaviour
     {
         Time.timeScale = 1f;
         anyKeyText.SetActive(false);
+        Destroy(PlayerController.instance.gameObject);
     }
 
     private void Update()

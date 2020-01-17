@@ -20,7 +20,7 @@ public class LevelExit : MonoBehaviour
 
     public void updateExitCollider()
     {
-        // exitCollider.isTrigger = true;
+        exitCollider.isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
