@@ -24,7 +24,8 @@ public class LevelManager : MonoBehaviour
         PlayerController.instance.transform.position = startPoint.position;
         PlayerController.instance.canMove = true;
         currentCoins = CharacterTracker.instance.currentCoins;
-        UIController.instance.UpdateUIElements();
+        if (!CameraController.instance.isBossRoom)
+            UIController.instance.UpdateUIElements();
         Time.timeScale = 1f;
     }
     private void Update()

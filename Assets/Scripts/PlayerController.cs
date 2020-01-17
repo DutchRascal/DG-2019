@@ -182,7 +182,10 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateGunUI()
     {
-        UIController.instance.gunText.text = availableGuns[currentGun].weaponName;
-        UIController.instance.currentGun.sprite = availableGuns[currentGun].gunUI;
+        if (!CameraController.instance.isBossRoom)
+        {
+            UIController.instance.gunText.text = availableGuns[currentGun].weaponName;
+            UIController.instance.currentGun.sprite = availableGuns[currentGun].gunUI;
+        }
     }
 }

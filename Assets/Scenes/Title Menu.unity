@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a0884d13db449c0b148ad4a903172d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Level 1
+  levelToLoad: Character Select
   deletePanel: {fileID: 1246815920}
   resetButton: {fileID: 886296303}
 --- !u!224 &1104662598 stripped

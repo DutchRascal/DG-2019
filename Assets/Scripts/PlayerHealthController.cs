@@ -22,7 +22,8 @@ public class PlayerHealthController : MonoBehaviour
     {
         maxHealth = CharacterTracker.instance.maxHealth;
         currentHealth = CharacterTracker.instance.currentHealth;
-        UIController.instance.UpdateUIElements();
+        if (!CameraController.instance.isBossRoom)
+            UIController.instance.UpdateUIElements();
         rColor = PlayerController.instance.bodySR.color.r;
         gColor = PlayerController.instance.bodySR.color.g;
         bColor = PlayerController.instance.bodySR.color.b;
