@@ -1,11 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public string levelToLoad;
+    public GameObject deletePanel;
+    public Button resetButton;
+
+    private void Start()
+    {
+        deletePanel.SetActive(false);
+        if (!PlayerPrefs.HasKey("UnlockedPlayers"))
+        {
+            resetButton.interactable = false;
+        }
+        else
+        {
+            resetButton.interactable = true;
+        }
+    }
 
     public void StartGame()
     {
@@ -20,5 +34,22 @@ public class MainMenu : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
+    }
+
+    public void DeleteSave()
+    {
+        deletePanel.SetActive(true);
+    }
+
+    public void ConfirmDelete()
+    {
+        PlayerPrefs.DeleteAll();
+        deletePanel.SetActive(false);
+        resetButton.interactable = false;
+    }
+
+    public void CancelDelete()
+    {
+        deletePanel.SetActive(false);
     }
 }
