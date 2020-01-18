@@ -8,6 +8,7 @@ TagManager:
   - PlayerBullet
   - Chest
   - Chests
+  - Boss
   layers:
   - Default
   - TransparentFX
