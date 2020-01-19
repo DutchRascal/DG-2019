@@ -16,6 +16,12 @@ public class BossController : MonoBehaviour
 
     public BossAction[] actions;
     public Rigidbody2D theRB;
+    public int currentHealth;
+    public GameObject
+        deathEffect,
+        levelExit,
+        hitEffect;
+
 
     private void Awake()
     {
@@ -46,22 +52,6 @@ public class BossController : MonoBehaviour
         }
     }
 
-    private void HandleShooting()
-    {
-        if (actions[currentAction].shouldShoot)
-        {
-            shotCounter -= Time.deltaTime;
-            if (shotCounter <= 0)
-            {
-                shotCounter = actions[currentAction].timeBetweenShots;
-                foreach (Transform shotPoint in actions[currentAction].shotPoints)
-                {
-                    Instantiate(actions[currentAction].itemToShoot, shotPoint.position, shotPoint.rotation);
-                }
-            }
-        }
-    }
-
     private void HandleMovement()
     {
         moveDirection = Vector2.zero;
@@ -78,6 +68,37 @@ public class BossController : MonoBehaviour
             }
         }
         theRB.velocity = moveDirection * actions[currentAction].moveSpeed;
+    }
+
+    private void HandleShooting()
+    {
+        if (actions[currentAction].shouldShoot)
+        {
+            shotCounter -= Time.deltaTime;
+            if (shotCounter <= 0)
+            {
+                shotCounter = actions[currentAction].timeBetweenShots;
+                foreach (Transform shotPoint in actions[currentAction].shotPoints)
+                {
+                    Instantiate(actions[currentAction].itemToShoot, shotPoint.position, shotPoint.rotation);
+                }
+            }
+        }
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0)
+        {
+            gameObject.SetActive(false);
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            if (Vector3.Distance(PlayerController.instance.transform.position, levelExit.transform.position) < 2f)
+            {
+                levelExit.transform.position += new Vector3(4f, 0f, 0f);
+            }
+            levelExit.SetActive(true);
+        }
     }
 }
 

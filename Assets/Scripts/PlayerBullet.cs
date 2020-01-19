@@ -29,6 +29,12 @@ public class PlayerBullet : MonoBehaviour
             AudioManager.instance.PlaySFX(4);
 
         }
+        if (other.tag == "Boss")
+        {
+            BossController.instance.TakeDamage(damageToGive);
+            print(damageToGive);
+            Instantiate(BossController.instance.hitEffect, transform.position, transform.localRotation);
+        }
         Destroy(gameObject);
 
     }
