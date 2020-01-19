@@ -37,18 +37,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
 
-        // if (instance == null)
-        // {
         instance = this;
         DontDestroyOnLoad(gameObject);
-        // return;
-        // }
-        // else if (instance != this)
-        // {
-        //     print(instance);
-        // Destroy(this.gameObject);
-        //     print("destroy");
-        // }
     }
 
     void Start()

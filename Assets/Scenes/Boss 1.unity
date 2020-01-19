@@ -539,7 +539,7 @@ MonoBehaviour:
     timeBetweenShots: 0
     shouldMove: 1
     shouldChasePlayer: 1
-    moveToPoints: 0
+    moveToPoint: 0
     shouldShoot: 0
     pointToMoveTo: {fileID: 0}
     shotPoints: []
@@ -549,7 +549,7 @@ MonoBehaviour:
     timeBetweenShots: 0.5
     shouldMove: 0
     shouldChasePlayer: 1
-    moveToPoints: 0
+    moveToPoint: 0
     shouldShoot: 1
     pointToMoveTo: {fileID: 0}
     shotPoints:
@@ -559,6 +559,7 @@ MonoBehaviour:
     - {fileID: 1817255337}
     itemToShoot: {fileID: 270483741927139437, guid: 9aa52001ea81741a4a258ad468483613,
       type: 3}
+  theRB: {fileID: 491578013}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,7 +6038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394265921}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -1.69, y: 0.11000061, z: 0}
+  m_LocalPosition: {x: -1.92, y: 0.11000061, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1347885816}
@@ -6124,7 +6125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817255336}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0.07, y: -1.614, z: 0}
+  m_LocalPosition: {x: 0.07, y: -1.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1347885816}
@@ -6281,7 +6282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930719649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.64, y: 0.11000061, z: 0}
+  m_LocalPosition: {x: 1.83, y: 0.11000061, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1347885816}
@@ -6445,7 +6446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028067535}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.07, y: 1.62, z: 0}
+  m_LocalPosition: {x: 0.07, y: 1.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1347885816}
@@ -6516,7 +6517,7 @@ PrefabInstance:
     - target: {fileID: 1376639960130020501, guid: 339c482f6f3c3466f89eff3f0b25659f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1376639960130020505, guid: 339c482f6f3c3466f89eff3f0b25659f,
         type: 3}
@@ -6626,30 +6627,30 @@ PrefabInstance:
     - target: {fileID: 1376639959211553231, guid: 339c482f6f3c3466f89eff3f0b25659f,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1376639959211553231, guid: 339c482f6f3c3466f89eff3f0b25659f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 980433030, guid: 339c482f6f3c3466f89eff3f0b25659f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 980433030, guid: 339c482f6f3c3466f89eff3f0b25659f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6206820857833111050, guid: 339c482f6f3c3466f89eff3f0b25659f,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6206820857833111050, guid: 339c482f6f3c3466f89eff3f0b25659f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1698085718, guid: 339c482f6f3c3466f89eff3f0b25659f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6691,6 +6692,15 @@ PrefabInstance:
     - target: {fileID: 1376639959659803435, guid: 339c482f6f3c3466f89eff3f0b25659f,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657245079, guid: 339c482f6f3c3466f89eff3f0b25659f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376639959234201676, guid: 339c482f6f3c3466f89eff3f0b25659f,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
