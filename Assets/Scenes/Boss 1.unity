@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 491578012}
   - component: {fileID: 491578014}
   - component: {fileID: 491578013}
+  - component: {fileID: 491578015}
   m_Layer: 10
   m_Name: The Boss
   m_TagString: Boss
@@ -520,6 +521,44 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!114 &491578015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491578011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c5e741f37c8496988f22243bce50fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - actionLength: 2
+    moveSpeed: 3.5
+    timeBetweenShots: 0
+    shouldMove: 1
+    shouldChasePlayer: 1
+    moveToPoints: 0
+    shouldShoot: 0
+    pointToMoveTo: {fileID: 0}
+    shotPoints: []
+    itemToShoot: {fileID: 0}
+  - actionLength: 2
+    moveSpeed: 3.5
+    timeBetweenShots: 0.5
+    shouldMove: 0
+    shouldChasePlayer: 1
+    moveToPoints: 0
+    shouldShoot: 1
+    pointToMoveTo: {fileID: 0}
+    shotPoints:
+    - {fileID: 1930719650}
+    - {fileID: 1394265922}
+    - {fileID: 2028067536}
+    - {fileID: 1817255337}
+    itemToShoot: {fileID: 270483741927139437, guid: 9aa52001ea81741a4a258ad468483613,
+      type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
