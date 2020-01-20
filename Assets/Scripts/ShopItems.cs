@@ -44,9 +44,7 @@ public class ShopItems : MonoBehaviour
                 {
                     if (LevelManager.instance.currentCoins >= itemCost)
                     {
-                        print("CC before" + LevelManager.instance.currentCoins);
                         LevelManager.instance.SpendCoins(itemCost);
-                        print("CC after" + LevelManager.instance.currentCoins);
                         if (isHealthRestore &&
                             PlayerHealthController.instance.currentHealth != PlayerHealthController.instance.maxHealth &&
                             LevelManager.instance.currentCoins > 0)
@@ -90,8 +88,6 @@ public class ShopItems : MonoBehaviour
 
     private void HandleSuccesfulBuy()
     {
-        print(itemCost);
-
         AudioManager.instance.PlaySFX(18);
         gameObject.SetActive(false);
         inBuyZone = false;

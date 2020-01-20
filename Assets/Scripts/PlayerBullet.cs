@@ -32,7 +32,6 @@ public class PlayerBullet : MonoBehaviour
         if (other.tag == "Boss")
         {
             BossController.instance.TakeDamage(damageToGive);
-            print(damageToGive);
             Instantiate(BossController.instance.hitEffect, transform.position, transform.localRotation);
         }
         Destroy(gameObject);

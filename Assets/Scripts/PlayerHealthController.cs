@@ -45,7 +45,6 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (invincibleCount <= 0)
         {
-            print(currentHealth);
             currentHealth--;
             AudioManager.instance.PlaySFX(11);
             invincibleCount = damageInvincibleLength;

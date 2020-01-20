@@ -8,7 +8,9 @@ public class UIController : MonoBehaviour
 {
     public static UIController instance;
 
-    public Slider healthSlider;
+    public Slider
+        healthSlider,
+        bossHealthBar;
     public Text
             healthText,
             coinText,

@@ -14,7 +14,6 @@ public class LevelExit : MonoBehaviour
 
     private void Start()
     {
-        print(SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name != "Character Select")
         {
             exitCollider.isTrigger = false;

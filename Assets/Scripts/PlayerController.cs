@@ -163,7 +163,6 @@ public class PlayerController : MonoBehaviour
         foreach (Gun gun in availableGuns)
         {
             gun.gameObject.SetActive(false);
-            print(gun.gameObject.name);
         }
         availableGuns[currentGun].gameObject.SetActive(true);
         UpdateGunUI();
