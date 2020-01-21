@@ -16,12 +16,14 @@ public class BossController : MonoBehaviour
 
     public BossAction[] actions;
     public Rigidbody2D theRB;
-    public int currentHealth;
+    public int
+        currentHealth,
+        currentSequence;
     public GameObject
         deathEffect,
         levelExit,
         hitEffect;
-
+    public BossSequence[] sequences;
 
     private void Awake()
     {
@@ -30,9 +32,11 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
+        actions = sequences[currentSequence].actions;
         actionCounter = actions[currentAction].actionLength;
         UIController.instance.bossHealthBar.maxValue = currentHealth;
         UIController.instance.bossHealthBar.value = currentHealth;
+        UIController.instance.UpdateUIElements();
     }
 
     void Update()
@@ -62,12 +66,12 @@ public class BossController : MonoBehaviour
             if (actions[currentAction].shouldChasePlayer)
             {
                 moveDirection = PlayerController.instance.transform.position - transform.position;
-                moveDirection.Normalize();
             }
-            if (actions[currentAction].moveToPoint)
+            if (actions[currentAction].moveToPoint && Vector3.Distance(transform.position, actions[currentAction].pointToMoveTo.position) > .5f)
             {
                 moveDirection = actions[currentAction].pointToMoveTo.position - transform.position;
             }
+            moveDirection.Normalize();
         }
         theRB.velocity = moveDirection * actions[currentAction].moveSpeed;
     }
@@ -102,6 +106,16 @@ public class BossController : MonoBehaviour
             levelExit.SetActive(true);
             UIController.instance.bossHealthBar.gameObject.SetActive(false);
         }
+        else
+        {
+            if (currentHealth <= sequences[currentSequence].endSequenceHealth && currentSequence < sequences.Length - 1)
+            {
+                currentSequence++;
+                actions = sequences[currentSequence].actions;
+                currentAction = 0;
+                actionCounter = actions[currentAction].actionLength;
+            }
+        }
         UIController.instance.bossHealthBar.value = currentHealth;
     }
 }
@@ -121,5 +135,14 @@ public class BossAction
     public Transform pointToMoveTo;
     public Transform[] shotPoints;
     public GameObject itemToShoot;
+}
+
+[System.Serializable]
+public class BossSequence
+{
+    [Header("Sequence")]
+    public BossAction[] actions;
+
+    public int endSequenceHealth;
 }
 
