@@ -43,10 +43,13 @@ public class UIController : MonoBehaviour
         fadeToBlack = false;
         currentGun.sprite = PlayerController.instance.availableGuns[PlayerController.instance.currentGun].gunUI;
         gunText.text = PlayerController.instance.availableGuns[PlayerController.instance.currentGun].weaponName;
+        healthSlider.enabled = false;
     }
 
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Boss 1")
+            healthSlider.enabled = true;
         if (fadeScreen)
         {
             if (fadeOutBlack)

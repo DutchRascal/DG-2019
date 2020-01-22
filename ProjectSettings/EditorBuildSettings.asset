@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Character Select.unity
     guid: f04e6890a8a94485fbd0ba84d50f1269
   - enabled: 1
-    path: Assets/Scenes/Victory.unity
-    guid: 3732565514a05462c9d85a245db793de
-  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: af196d318e8d641f59b3283bda4ebc74
   - enabled: 1
@@ -23,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: ef7229557342840a794ed5cb0bfbaaf1
+  - enabled: 1
+    path: Assets/Scenes/Boss 1.unity
+    guid: 96e8e38109a1a49e089ea4f3d410f2fc
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 3732565514a05462c9d85a245db793de
   m_configObjects: {}
